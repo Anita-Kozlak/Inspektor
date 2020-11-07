@@ -1,0 +1,21 @@
+@import "fonts";
+@import "reset";
+@import "mixins";
+@import "colours";
+@import "form";
+@import "mainView";
+@import "workPlan";
+@import "semptemberFirstWeek";
+@import "cast";
+@import "reviews";
+@import "regulations";
+@import "contact";
+@import "notes";
+
+body {
+  font-family: 'Merriweather', serif;
+  background-image: url("https://architektura.smcloud.net/t/photos/28538/nfm.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}

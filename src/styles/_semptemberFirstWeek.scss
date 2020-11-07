@@ -1,0 +1,46 @@
+.firstWeek {
+  max-width: 800px;
+  margin: 50px auto;
+  font-weight: normal;
+}
+.planWorkHeading {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: white;
+
+}
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 15px;
+  height: 32px;
+}
+@include close;
+table {
+  background-color: rgb(77,71,73);
+}
+  tr {
+    border: 1px solid black;
+
+  }
+th {
+  font-size: 8px;
+  font-weight: bold;
+  padding: 10px 30px;
+}
+td {
+  font-size: 8px;
+
+}
+td, th {
+  font-family: 'Roboto', sans-serif;  padding: 5px;
+  border: 1px solid rgb(125,91,58);
+  color: rgb(216,215,220);
+  @include tablet {
+    font-size: 15px;
+    padding: 10px 30px;
+  }
+}
