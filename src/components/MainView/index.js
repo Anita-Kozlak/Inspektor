@@ -9,7 +9,7 @@ const MainView = () => {
                         </Link>
                     <Link to={ROUTES.REGULATIONS}><h1 className="regulations view">REGULAMINY</h1></Link>
                     <Link to={ROUTES.CAST}><h1 className="cast view">skład orkiestry</h1></Link>
-                    <a href="https://www.nfm.wroclaw.pl/wydarzenia/?m=2020-10" target="_blank" className="repertoire view" >REPERTUAR SEZONU</a>
+                    <a href="Repertuar_sezonu.pdf" target="_blank" className="repertoire view" >REPERTUAR SEZONU</a>
 
                     <Link to={ROUTES.CONTACT}><h1 className="contact view">DANE KONTAKTOWE</h1></Link>
                     <h1 className="reg view"></h1>
