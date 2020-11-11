@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const Cast= () => {
     return (
         <>
-            <Link to={ROUTES.MAIN_VIEW}><a href="#" className="close" /></Link>
+            <Link to={ROUTES.MAIN_VIEW}><span className="close" /></Link>
             <p className="castHeading">skład orkiestry</p>
             <div className="container">
                 <div className="plans">

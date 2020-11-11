@@ -1,0 +1,53 @@
+.inner-container {
+    width: 800px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.chat-input {
+    display: flex;
+    background: white;
+
+textarea {
+    width: 750px;
+    height: 70px;
+    background: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+}
+button {
+    background: white;
+    border: none;
+    }
+img {
+    background: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    }
+}
+.chat {
+        width: 800px;
+        background: white;
+        margin: auto;
+        height: 570px;
+        font-family: 'Roboto';
+        overflow-Y: scroll;
+    span {
+        font-size: 15px;
+        float: left; 
+        font-weight: bold;
+        
+    }
+    p {
+        margin-top: 30px;
+        display: flex;
+        justify-content: start;
+        font-size: 15px;
+        background: rgb(226,191,143);
+        padding: 20px;
+        border-radius: 10px;
+        
+    }
+}

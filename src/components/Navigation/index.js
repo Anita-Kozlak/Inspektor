@@ -5,7 +5,6 @@ import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 
 import { AuthUserContext } from '../Session';
-import SignInPage, {SignInForm} from "../SignIn";
 
 const Navigation = () => (
     <div>

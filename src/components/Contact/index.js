@@ -5,7 +5,7 @@ import * as ROUTES from "../../constants/routes";
 const Contact = () => {
     return (
         <div className="contactContainer">
-            <Link to={ROUTES.MAIN_VIEW}><a href="#" className="close" /></Link>
+            <Link to={ROUTES.MAIN_VIEW}><span className="close" /></Link>
                 <div className="contactList">
                 <h2 className="contactName">Dyrektor Artystyczny- Giancarlo Guerrero</h2>
                 <h3 className="contactTel">tel. kom. : +1 615 419 0359</h3>

@@ -5,14 +5,14 @@ import {Link} from "react-router-dom";
 const WorkPlan = () => {
     return (
         <>
-            <Link to={ROUTES.MAIN_VIEW}><a href="#" className="close" /></Link>
+            <Link to={ROUTES.MAIN_VIEW}><span className="close" /></Link>
         <p className="headingWorkPlan">PLAN PRACY</p>
             <div className="container">
                 <div className="plans">
                     <div className="weeks">
                         <div className="view">wrzesień</div>
-                        <Link to={ROUTES.FIRST_WEEK} style={{textDecoration: "none", color: "black"}}><h2 className="week">1-5.09.2020</h2> </Link>
-                        <h2 className="week">2 tydzień</h2>
+                        <Link to={ROUTES.FIRST_WEEK} style={{textDecoration: "none", color: "black"}}><h2 className="week">1-5.09.2020r</h2> </Link>
+                        <h2 className="week">7-11.09.2020r</h2>
                         <h2 className="week">3 tydzień</h2>
                         <h2 className="week">4 tydzień</h2>
                     </div>

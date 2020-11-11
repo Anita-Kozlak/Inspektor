@@ -5,7 +5,7 @@ import * as ROUTES from "../../../constants/routes";
 const CastFirstWeek = () => {
     return (
         <div className="castFirstWeek">
-            <Link to={ROUTES.MAIN_VIEW}><a href="#" className="close" /></Link>
+            <Link to={ROUTES.MAIN_VIEW}><span className="close" /></Link>
 
             <h2 className="castHeading">skład orkiestry</h2>
             <table>

@@ -4,7 +4,7 @@ import * as ROUTES from "../../../constants/routes";
 const FirstWeek = () => {
     return (
         <div className="firstWeek">
-            <Link to={ROUTES.WORK_PLAN}><a href="#" className="close" /></Link>
+            <Link to={ROUTES.WORK_PLAN}><span className="close" /></Link>
             <h2 className="planWorkHeading">PLAN PRACY</h2>
             <table>
             <thead>
