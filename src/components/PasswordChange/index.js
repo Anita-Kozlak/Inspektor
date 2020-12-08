@@ -1,77 +1,106 @@
-import React, { Component } from 'react';
 
-import { withFirebase } from '../Firebase';
+  
+import React from "react";
+import { useState } from "react";
+import firebase from "../Firebase/firebase";
 import {Link} from "react-router-dom";
-import * as ROUTES from "../../constants/routes";
 
-const INITIAL_STATE = {
-    passwordOne: '',
-    passwordTwo: '',
-    error: null,
+const PasswordChange = (props) => {
+
+    const [msg, setMsg] = useState('')
+    const [email, setEmail] = useState('');
+
+    const onChange = async (e) => {
+      const auth = firebase.auth();
+      const emailAddress = email;
+      e.preventDefault();
+
+      auth
+        .sendPasswordResetEmail(emailAddress)
+        .then(function () {
+
+          console.log("hasło wysłane");
+        })
+        .catch(function (error) {
+          console.log("błąd");
+        });
+
+        setMsg("Sprawdz swoją skrzynkę mailową");
+
+    };
+
+  return (
+    <div className="formContainer">
+      <div className="container">
+        <Link to="/">
+          <img
+            src="https://www.wroclaw.pl/go/download/img-10cc299f0a18003d189e670bcd9cb8a4/nfm-jpg.jpg"
+            alt=""
+          />
+          <h1 className="heading">Inspektor</h1>
+        </Link>
+      </div>
+
+      <form onSubmit={e => e.pre}>
+        <h1>
+          Zmień hasło <br></br>
+        </h1>
+        <h6>(wpisz swój email, a otrzymasz maila resetującego hasło)</h6>
+        <input
+          name="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button className="btn" onClick={onChange}>
+          wyślij
+        </button>
+        <span>{msg}</span>
+      </form>
+    </div>
+  );
 };
 
-class PasswordChangeForm extends Component {
-    constructor(props) {
-        super(props);
+export default PasswordChange;
 
-        this.state = { ...INITIAL_STATE };
-    }
+// import React from "react";
+// import Input from "@material-ui/core/Input";
+// import Button from "@material-ui/core/Button";
+// import { useState } from "react";
+// import firebase from "./firebase";
 
-    onSubmit = event => {
-        const { passwordOne } = this.state;
+// const PasswordChange = () => {
+//   const [email, setEmail] = useState("");
 
-        this.props.firebase
-            .doPasswordUpdate(passwordOne)
-            .then(() => {
-                this.setState({ ...INITIAL_STATE });
-            })
-            .catch(error => {
-                this.setState({ error });
-            });
+//   const onChange = async () => {
+//     var auth = firebase.auth();
+//     var emailAddress = email;
 
-        event.preventDefault();
-    };
+//     auth
+//       .sendPasswordResetEmail(emailAddress)
+//       .then(function () {
+//         console.log("hasło wysłane");
+//       })
+//       .catch(function (error) {
+//         console.log("błąd");
+//       });
+//   };
+//   return (
+//     <div className="changePassword">
+//       <h1>
+//         Zmień hasło <br></br>
+//         <h4>(wpisz swój email, otrzymasz maila resetującego hasło)</h4>
+//       </h1>
+//       <form>
+//         <label>Email użytkownika:</label>
+//         <input
+//           name="text"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//         />
+//         <button className="btn" onClick={onChange}>Wyślij</button>
+//       </form>
+//     </div>
+//   );
+// };
 
-    onChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    };
-
-    render() {
-        const { passwordOne, passwordTwo, error } = this.state;
-
-        const isInvalid =
-            passwordOne !== passwordTwo || passwordOne === '';
-
-        return (
-            <div className="formContainer">
-                <div className="container">
-                    <Link to={ROUTES.SIGN_IN}><img src="https://www.wroclaw.pl/go/download/img-10cc299f0a18003d189e670bcd9cb8a4/nfm-jpg.jpg" alt="" />
-                        <h1 className="heading">Inspektor</h1></Link>
-                </div>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        name="passwordOne"
-                        value={passwordOne}
-                        onChange={this.onChange}
-                        type="password"
-                        placeholder="Nowe Hasło"
-                    />
-                    <input
-                        name="passwordTwo"
-                        value={passwordTwo}
-                        onChange={this.onChange}
-                        type="password"
-                        placeholder="Potwierdź Nowe Hasło"
-                    />
-                    <button className="btn" disabled={isInvalid} type="submit">
-                        Zresetuj hasło
-                    </button>
-
-                    {error && <p>{error.message}</p>}
-                </form>
-            </div>
-        );
-    }
-}
-
-export default withFirebase(PasswordChangeForm);
+// export default PasswordChange;

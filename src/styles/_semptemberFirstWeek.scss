@@ -1,6 +1,7 @@
 .firstWeek {
-  max-width: 800px;
-  margin: 50px auto;
+  // max-width: 800px;
+  max-width: 9y0vw;
+  margin: 100px auto;
   font-weight: normal;
 }
 .planWorkHeading {
@@ -29,7 +30,7 @@ table {
 th {
   font-size: 8px;
   font-weight: bold;
-  padding: 10px 30px;
+  padding: 20px;
 }
 td {
   font-size: 8px;
@@ -40,6 +41,8 @@ td, th {
   padding: 5px;
   border: 1px solid rgb(125,91,58);
   color: rgb(216,215,220);
+    width: 230px;
+
   @include tablet {
     font-size: 15px;
     padding: 10px 30px;

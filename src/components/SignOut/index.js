@@ -1,11 +1,24 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import { withFirebase } from '../Firebase';
-import * as ROUTES from "../../constants/routes";
+import React from "react";
+import { Link } from "react-router-dom";
+import firebase from "../Firebase/firebase";
+ 
 
-const SignOutButton = ({ firebase }) => (
-   <Link to={ROUTES.SIGN_IN}> <button className="btnSignOut" type="button" onClick={firebase.doSignOut} style={{float: "left", marginLeft: 10, marginTop: 10}}>Wyloguj
-    </button></Link>
-);
+const SignOutButton = (props) =>  {
 
-export default withFirebase(SignOutButton);
+    const onSignout = async () => {
+    await firebase.auth().signOut();
+    // props.history.push("/");
+  };
+
+     return (
+         <Link to="/">
+           {" "}
+           <button className="btnSignOut" type="button" onClick={onSignout}>
+             Wyloguj
+           </button>
+         </Link>
+     );
+ }
+
+
+ export default SignOutButton;

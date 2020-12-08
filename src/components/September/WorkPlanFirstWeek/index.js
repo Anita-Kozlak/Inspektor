@@ -1,79 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from "react-router-dom";
-import * as ROUTES from "../../../constants/routes";
+import * as XLSX from "xlsx";
+
 const FirstWeek = () => {
+
+
+    const [items, setItems] = useState([]);
+
+    // const url = "https://1drv.ms/x/s!AnBVRGVOqW42i5hUbPB-12CuxJMkXg?e=qfYQcx";/// nie działa
+
+    fetch("excel.xlsx")
+      .then((res) => res.arrayBuffer())
+      .then((ab) => {
+        const wb = XLSX.read(ab, { type: "array" });
+
+        const wsname = wb.SheetNames[0];
+
+        const ws = wb.Sheets[wsname];
+
+        const data = XLSX.utils.sheet_to_json(ws);
+        setItems(data);
+      });
     return (
-        <div className="firstWeek">
-            <Link to={ROUTES.WORK_PLAN}><span className="close" /></Link>
-            <h2 className="planWorkHeading">PLAN PRACY</h2>
-            <table>
-            <thead>
+      <div className="firstWeek">
+        <Link to="/workplan">
+          <span className="close" />
+        </Link>
+       
+        <table class="table container">
+          <thead>
             <tr>
-                <th>dzień</th>
-                <th>godzina</th>
-                <th>sala</th>
-                <th>dyrygent</th>
-                <th>orkiestra</th>
-                <th>program</th>
+              <th>Dzień</th>
+              <th>Godzina</th>
+              <th>Sala</th>
+              <th>Dyrygent</th>
+              <th>Orkiestra</th>
+              <th>Program</th>
             </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1.09.2020r Poniedziałek</td>
-                    <td>9.30 - 12.45</td>
-                    <td>Główna NFM</td>
-                    <td>Gabriel Chmura</td>
-                    <td>tutti</td>
-                    <td>W.A.Mozart- koncert klarnetowy <br></br>
-                        W.A.Mozart- Msza
-                    </td>
-                </tr>
-                <tr>
-                    <td>2.09.2020r Wtorek</td>
-                    <td>9.30 - 12.45</td>
-                    <td>Główna NFM</td>
-                    <td>Gabriel Chmura</td>
-                    <td>tutti</td>
-                    <td>W.A.Mozart- koncert klarnetowy <br></br>
-                        W.A.Mozart- Msza
-                    </td>
-                </tr>
-                <tr>
-                    <td>3.09.2020r Środa</td>
-                    <td>9.30 - 12.45</td>
-                    <td>Główna NFM</td>
-                    <td>Gabriel Chmura</td>
-                    <td>tutti</td>
-                    <td>W.A.Mozart- koncert klarnetowy <br></br>
-                        W.A.Mozart- Msza
-                    </td>
-                </tr>
-                <tr>
-                    <td>4.09.2020r Czwartek</td>
-                    <td>9.30 - 12.45</td>
-                    <td>Główna NFM</td>
-                    <td>Gabriel Chmura</td>
-                    <td>tutti</td>
-                    <td>W.A.Mozart- koncert klarnetowy <br></br>
-                        W.A.Mozart- Msza
-                    </td>
-                </tr>
-                <tr>
-                    <td>5.09.2020r Piątek</td>
-                    <td>
-                       9.30-12.45
-                      19.00 - Koncert
-                    </td>
-                    <td>Główna NFM</td>
-                    <td>Gabriel Chmura</td>
-                    <td>tutti</td>
-                    <td>W.A.Mozart- koncert klarnetowy <br></br>
-                        W.A.Mozart- Msza
-                    </td>
-                </tr>
-            </tbody>
+          </thead>
+          <tbody>
+            {items.map((d) => (
+              <tr key={d.Dzień}>
+                <td>{d.Dzień}</td>
+                <td>{d.Godzina}</td>
+                <td>{d.Sala}</td>
+                <td>{d.Dyrygent}</td>
+                <td>{d.Orkiestra}</td>
+                <td>{d.Program}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
-            </div>
-    )
+      </div>
+    );
 }
 export default FirstWeek;

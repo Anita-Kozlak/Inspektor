@@ -1,0 +1,11 @@
+{
+    "to": "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU"
+    "notification": {
+
+    "title": "Hello",
+    "body": "World",
+    "icon": "/firebase-logo.png"
+    }
+}
+
+curl --header "Authorization: key=BDA1z13XB6o-AiJBCzPnOO_1sFGjKNJCiVNvlw4VGe83w2l7LVWtZEra96HmciLLOyc0tlHJfpwr7pzwNXC9uTk

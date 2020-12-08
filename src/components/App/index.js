@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navigation from "../Navigation";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
 import SignUpPage from "../SignUp";
 import SignInPage from "../SignIn";
 import PasswordForgetPage from "../PasswordForget";
-import HomePage from "../Home";
-import AdminPage from "../Admin";
-import * as ROUTES from "../../constants/routes";
-import { withAuthentication } from "../Session";
-import MainView from "../MainView";
+import MainViewPage from "../MainView";
 import WorkPlan from "../WorkPlan";
 import FirstWeek from "../September/WorkPlanFirstWeek";
 import Cast from "../Cast";
@@ -19,43 +14,58 @@ import Contact from "../Contact";
 import Chat from "../Chat";
 import Notes from "../Notes";
 import Info from "../Info";
-import firebase from "firebase";
+import { AuthProvider } from "../auth";
+import PrivateRoute from "../PrivateRoute";
+
+// import firebase, { messaging } from "firebase";
 const App = () => {
-  useEffect(() => {
-    // firebase.auth().signOut();
-    const msg = firebase.messaging();
-    msg
-      .requestPermission()
-      .then(() => {
-        return msg.getToken();
-      })
-      .then((data) => {
-        console.log("token", data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // firebase.auth().signOut();
+  //   const msg = firebase.messaging();
+  //   msg
+  //     .requestPermission()
+  //     .then(() => {
+  //       return msg.getToken();
+  //     })
+  //     .then((data) => {
+  //       console.log("token", data);
+  //     });
+  // }, []);
+  // msg.onMessage(function(payload) {
+  //   console.log('onMessage', payload);
+  // })
   return (
-    <Router>
-      <div>
-        <Navigation />
-​        <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-        <Route path={ROUTES.HOME} component={HomePage} />
-        <Route path={ROUTES.ADMIN} component={AdminPage} />
-        <Route path={ROUTES.MAIN_VIEW} component={MainView} />
-        <Route path={ROUTES.WORK_PLAN} component={WorkPlan} />
-        <Route path={ROUTES.FIRST_WEEK} component={FirstWeek} />
-        <Route path={ROUTES.CAST} component={Cast} />
-        <Route path={ROUTES.CAST_FIRST_WEEK} component={CastFirstWeek} />
-        <Route path={ROUTES.REVIEWS} component={Reviews} />
-        <Route path={ROUTES.REGULATIONS} component={Regulations} />
-        <Route path={ROUTES.CONTACT} component={Contact} />
-​        <Route exact path={ROUTES.CHAT} render={Chat} />
-        <Route path={ROUTES.NOTES} component={Notes} />
-        <Route path={ROUTES.INFO} component={Info} />
-      </div>
-    </Router>
+    <AuthProvider>
+      {/* <Calendar /> */}
+      <Router>
+        <Switch>
+          <Route exact path="/" component={SignInPage} />
+          <Route exact path="/signup">
+            <SignUpPage />
+          </Route>
+          <Route exact path="/pw-forget" component={PasswordForgetPage} />
+          {/* <Route path={ROUTES.ADMIN} component={AdminPage} /> */}
+          {/* <Route exact path="/mainview" component={MainViewPage} /> */}
+          <Route exact path="/workplan" component={WorkPlan} />
+          <Route exact path="/firstweek" component={FirstWeek} />
+          <Route exact path="/cast" component={Cast} />
+          <Route exact path="/cast-first-week" component={CastFirstWeek} />
+          <Route exact path="/reviews" component={Reviews} />
+          <Route exact path="/regulations" component={Regulations} />
+          <Route exact path="/contact" component={Contact} />
+          ​ <Route exact path="/chat" render={Chat} />
+          <Route exact path="/notes" component={Notes} />
+          <Route exact path="/info" component={Info} />
+          <PrivateRoute
+            exact
+            path="/mainview"
+            component={MainViewPage}
+          />
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 };
 
-export default withAuthentication(App);
+// export default withAuthentication(App);
+export default App;

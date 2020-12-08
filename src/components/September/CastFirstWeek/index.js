@@ -1,11 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import * as ROUTES from "../../../constants/routes";
 
 const CastFirstWeek = () => {
     return (
         <div className="castFirstWeek">
-            <Link to={ROUTES.MAIN_VIEW}><span className="close" /></Link>
+            <Link to='/mainview'><span className="close" /></Link>
 
             <h2 className="castHeading">skład orkiestry</h2>
             <table>
