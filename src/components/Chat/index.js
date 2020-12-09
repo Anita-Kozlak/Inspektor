@@ -1,7 +1,17 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import firebase from '../Firebase/firebase'
+// import firebase from '../Firebase/firebase'
+import "firebase/firestore";
+import "firebase/auth";
+// import firebase from "firebase/app";
+
+import * as firebase from "firebase";
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
+// import "firebase/firestore";
 function Chat(props) {
   const [message, setMessage] = useState("");
   const dummy = useRef();
@@ -11,7 +21,7 @@ function Chat(props) {
     // loading,
     // error,
   ] = useCollectionData(
-    firebase.firestore.collection("chat").orderBy("createdAt"),
+    firestore.collection("chat").orderBy("createdAt"),
     { idField: "id" },
   );
 
@@ -29,16 +39,16 @@ function Chat(props) {
   async function onSubmit() {
     // console.log({ message });
     // console.log(props.firebase.auth.currentUser.email);
-    console.log(firebase.auth.currentUser.username);
+    // console.log(firebase.auth.currentUser.email);
 
-    if (!firebase.auth.currentUser) {
-      throw new Error("User not logged in!");
-    }
+    // if (!firebase.auth.currentUser) {
+    //   throw new Error("User not logged in!");
+    // }
 
-    await firebase.firestore.collection("chat").add({
+    await firestore.collection("chat").add({
       text: message,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      email: firebase.auth.currentUser.email,
+      email: auth.currentUser.email,
     });
     setMessage("");
     dummy.current.scrollIntoView({ behavior: "smooth" });

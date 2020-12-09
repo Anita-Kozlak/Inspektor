@@ -53,7 +53,7 @@ const App = () => {
           <Route exact path="/reviews" component={Reviews} />
           <Route exact path="/regulations" component={Regulations} />
           <Route exact path="/contact" component={Contact} />
-          ​ <Route exact path="/chat" render={Chat} />
+          ​ <Route exact path="/chat" component={Chat} />
           <Route exact path="/notes" component={Notes} />
           <Route exact path="/info" component={Info} />
           <PrivateRoute

@@ -11,8 +11,9 @@ const SignInPage = (props) => {
 
 
     const { handleSubmit, register, errors } = useForm();
-    const onSubmit = (values) => console.log(values);
-
+    const onSubmit = (values) => {
+      return values;
+    }
     const onLogin = async () => {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password);

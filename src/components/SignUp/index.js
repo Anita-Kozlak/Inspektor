@@ -23,8 +23,9 @@ const SignUpFormBase = (props) => {
     const [email, setEmail] = useState("");
 
   const { handleSubmit, register, errors, getValues } = useForm();
-  const onSubmit = (values) => console.log(values);
-
+  const onSubmit = (values) => {
+    return values;
+  }
   const onRegister = async () => {
     const users = firebase.database().ref("users");
 
