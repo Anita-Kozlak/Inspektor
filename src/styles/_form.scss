@@ -3,6 +3,7 @@
   flex-direction: column;
   margin: 100px auto 300px auto;
   background-color: black;
+  opacity: 0.8;
   padding: 60px;
   @include tablet {
       flex-direction: row;

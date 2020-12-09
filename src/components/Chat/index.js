@@ -8,7 +8,6 @@ import * as firebase from "firebase";
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-const database = firebase.database()
 
 function Chat() {
 

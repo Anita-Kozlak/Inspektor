@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
 
