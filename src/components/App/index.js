@@ -40,9 +40,8 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={SignInPage} />
-          <Route exact path="/signup">
-            <SignUpPage />
-          </Route>
+          <Route exact path="/signup" component={SignUpPage} />
+        
           <Route exact path="/pw-forget" component={PasswordForgetPage} />
           {/* <Route path={ROUTES.ADMIN} component={AdminPage} /> */}
           {/* <Route exact path="/mainview" component={MainViewPage} /> */}
@@ -56,11 +55,7 @@ const App = () => {
           ​ <Route exact path="/chat" component={Chat} />
           <Route exact path="/notes" component={Notes} />
           <Route exact path="/info" component={Info} />
-          <PrivateRoute
-            exact
-            path="/mainview"
-            component={MainViewPage}
-          />
+          <PrivateRoute exact path="/mainview" component={MainViewPage} />
         </Switch>
       </Router>
     </AuthProvider>

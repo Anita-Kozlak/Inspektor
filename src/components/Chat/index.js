@@ -1,21 +1,28 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-// import firebase from '../Firebase/firebase'
 import "firebase/firestore";
 import "firebase/auth";
-// import firebase from "firebase/app";
-
+import "firebase/database"
 import * as firebase from "firebase";
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
+const database = firebase.database()
 
-// import "firebase/firestore";
-function Chat(props) {
+function Chat() {
+
+
+  
+  useEffect(() => {
+    const users = firebase.database().ref("users");
+    users.on("value", (snapshot) => {
+      const user = snapshot.val();
+      console.log(user)
+    });
+  }, []);
   const [message, setMessage] = useState("");
   const dummy = useRef();
-
   const [
     messages,
     // loading,

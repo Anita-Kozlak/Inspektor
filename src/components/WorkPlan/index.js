@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
 
 const WorkPlan = () => {
   return (
     <>
       {" "}
-      <SignOutButton />{" "}
-      <Link to="/mainview">
-        <span className="close" />
-      </Link>
+      <div className="buttons">
+        <MainViewLink />
+        <SignOutButton />
+      </div>
       <div className="firstWeek">
         <iframe
           title="This is a unique title"
           src="https://calendar.google.com/calendar/embed?src=iqopqmhjcn4ouegk95atk23ab0%40group.calendar.google.com&ctz=Europe%2FWarsaw"
-          style={{ border: 0, width: '90vw', height: '80vh', fontSize: 20 }}
+          style={{ border: 0, width: "90vw", height: "80vh", fontSize: 20 }}
         ></iframe>
       </div>
       {/* <Calendar /> */}

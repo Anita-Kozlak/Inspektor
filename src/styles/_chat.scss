@@ -1,16 +1,15 @@
 .inner-container {
-    width: 800px;
-    margin: auto;
     margin-top: 100px;
     margin-bottom: 50px;
 }
 .chat-input {
     display: flex;
     background: white;
+    width: 80vw;
+     margin: auto;
 
 textarea {
-    width: 750px;
-    height: 70px;
+    width: 80vw;
     background: white;
     font-size: 15px;
     border: none;
@@ -29,12 +28,13 @@ img {
     }
 }
 .chat {
-        width: 800px;
-        background: white;
-        // margin: auto;
+        width: 80vw;
+        background:white;
+        margin: auto;
         height: 570px;
         font-family: 'Roboto';
         overflow-Y: scroll;
+    
     span {
         font-size: 15px;
         float: left; 

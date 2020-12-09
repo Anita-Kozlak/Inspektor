@@ -6,37 +6,41 @@ import { sameAs } from "../../Helpers/validators";
 import { useForm } from "react-hook-form";
 
 
-const SignUpPage = () => {
-    return (
-      <div>
-        <SignUpFormBase />
-      </div>
-    );
-
-}
 
 
 
-const SignUpFormBase = (props) => {
+const SignUpPage = (props) => {
 
   const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("")
 
   const { handleSubmit, register, errors, getValues } = useForm();
-  const onSubmit = (values) => {
-    return values;
-  }
-  const onRegister = async () => {
-    const users = firebase.database().ref("users");
+  // const onSubmit = (values) => console.log(values)
+  // const onRegister = async () => {
 
-    try {
-      await firebase.auth().createUserWithEmailAndPassword(email, password);
-      users.push(email);
-      props.history.push("/mainview");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   try {
+  //     await firebase.auth().createUserWithEmailAndPassword(email, password);
+  //     props.history.push("/mainview");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+    const onSubmit = (values) => {
+      return values;
+    };
+    const onRegister= async () => {
+        const users = firebase.database().ref("users");
+
+      try {
+        await firebase.auth().createUserWithEmailAndPassword(email, password);
+        props.history.push("/mainview");
+        users.push(name)
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
   return (
     <div className="formContainer">
@@ -51,13 +55,25 @@ const SignUpFormBase = (props) => {
       </div>
       <form className="signUp" onSubmit={handleSubmit(onSubmit)}>
         <div className="form__registerGrey">
+          <label>Imię i Nazwsko</label>
+          <input
+            ref={register({ required: "Imię i nazwisko jest wymagane" })}
+            name="name"
+            type="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <span>
+            {errors.name}
+            <br />
+          </span>
           <label>Email</label>
           <input
             name="email"
             ref={register({
               required: "Email jest wymagany!",
               pattern: {
-                value: /S+@S+.S+/,
+                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 message: "Podany email jest nieparwidłowy!",
               },
             })}
