@@ -57,7 +57,7 @@ input {
   border: 1px solid $grey;
   background: transparent;
   border-radius: 2px;
-  height: 35px;
+  // height: 25px;
   @include tablet {
     width: 300px;
     margin-bottom: 15px;
