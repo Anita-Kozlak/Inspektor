@@ -1,13 +1,14 @@
 import React from "react";
-import {Link} from "react-router-dom";
-
+import MainViewLink from "../Link/MainViewLink";
+import SignOutButton from "../SignOut";
 const Reviews = () => {
 
     return (
       <>
-        <Link to="/mainview">
-          <span className="close" />
-        </Link>
+        <div className="buttons">
+          <MainViewLink />
+          <SignOutButton />
+        </div>
         <div className="reviewsContainer">
           <div className="reviewsList">
             <a href="http://nfm.wroclaw.pl/orkiestra/Recenzje%202019-2020/recenzja%202019.09.30-10.04%20Guerrero.html">

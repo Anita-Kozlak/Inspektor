@@ -1,12 +1,14 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import MainViewLink from "../Link/MainViewLink";
+import SignOutButton from "../SignOut";
 
 const Contact = () => {
     return (
       <>
-        <Link to="/mainview">
-          <div className="close" />
-        </Link>
+        <div className="buttons">
+        <MainViewLink />
+        <SignOutButton />
+      </div>
         <div className="contactContainer">
           <div className="contactList">
             <h2 className="contactName">

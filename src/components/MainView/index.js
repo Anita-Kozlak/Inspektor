@@ -35,7 +35,7 @@ const MainViewPage = () => {
           <h1 className="reviews view">RECENZJE</h1>
         </Link>
         <Link to="/info">
-          <h1 className="info view">WAŻNE INFORMACJE</h1>
+          <h1 className="info view">info</h1>
         </Link>
         <Link to="/chat">
           <h1 className="messenger view">CHAT</h1>

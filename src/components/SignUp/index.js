@@ -1,13 +1,11 @@
+/* eslint no-useless-escape: 0 */
+
 import React from 'react';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../Firebase/firebase";
 import { sameAs } from "../../Helpers/validators";
 import { useForm } from "react-hook-form";
-
-
-
-
 
 const SignUpPage = (props) => {
 
@@ -16,32 +14,19 @@ const SignUpPage = (props) => {
     const [name, setName] = useState("")
 
   const { handleSubmit, register, errors, getValues } = useForm();
-  // const onSubmit = (values) => console.log(values)
-  // const onRegister = async () => {
-
-  //   try {
-  //     await firebase.auth().createUserWithEmailAndPassword(email, password);
-  //     props.history.push("/mainview");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
     const onSubmit = (values) => {
       return values;
     };
     const onRegister= async () => {
-        const users = firebase.database().ref("users");
 
       try {
-        await firebase.auth().createUserWithEmailAndPassword(email, password);
+        await firebase.auth().createUserWithEmailAndPassword(email, password)
         props.history.push("/mainview");
-        users.push(name)
       } catch (error) {
         console.log(error);
       }
     };
-
   return (
     <div className="formContainer">
       <div className="container">

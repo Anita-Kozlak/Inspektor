@@ -14,7 +14,7 @@ const WorkPlan = () => {
         <iframe
           title="This is a unique title"
           src="https://calendar.google.com/calendar/embed?src=iqopqmhjcn4ouegk95atk23ab0%40group.calendar.google.com&ctz=Europe%2FWarsaw"
-          style={{ border: 0, width: "90vw", height: "80vh", fontSize: 20 }}
+          style={{ border: 0, width: "90vw", height: "80vh" }}
         ></iframe>
       </div>
       {/* <Calendar /> */}
