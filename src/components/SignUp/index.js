@@ -66,7 +66,6 @@ const SignUpPage = (props) => {
           />
           <span>
             {errors.email && errors.email.message}
-            <br />
           </span>
           <input
             ref={register({ required: true, minLength: 6 })}
@@ -93,7 +92,6 @@ const SignUpPage = (props) => {
               validate: { sameAs: sameAs(getValues, "password") },
             })}
             name="passwordConfirmation"
-            className="input is-large"
             type="password"
             autoComplete="current-password"
           />
