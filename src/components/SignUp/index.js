@@ -40,7 +40,7 @@ const SignUpPage = (props) => {
       </div>
       <form className="signUp" onSubmit={handleSubmit(onSubmit)}>
         <div className="form__registerGrey">
-          <label>Imię i Nazwsko</label>
+          {/* <label>Imię i Nazwsko</label>
           <input
             ref={register({ required: "Imię i nazwisko jest wymagane" })}
             name="name"
@@ -51,8 +51,7 @@ const SignUpPage = (props) => {
           <span>
             {errors.name}
             <br />
-          </span>
-          <label>Email</label>
+          </span> */}
           <input
             name="email"
             ref={register({
@@ -69,7 +68,6 @@ const SignUpPage = (props) => {
             {errors.email && errors.email.message}
             <br />
           </span>
-          <label>Hasło</label>
           <input
             ref={register({ required: true, minLength: 6 })}
             name="password"
@@ -88,8 +86,6 @@ const SignUpPage = (props) => {
               )}
             </div>
           )}
-
-          <label>Powtórz hasło</label>
           <input
             ref={register({
               required: true,
