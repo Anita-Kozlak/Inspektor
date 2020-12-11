@@ -1,5 +1,5 @@
 .inner-container {
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom: 50px;
 }
 .chat-input {
@@ -8,12 +8,14 @@
     width: 80vw;
      margin: auto;
 
+
 textarea {
     width: 80vw;
     background: white;
     font-size: 15px;
     border: none;
     padding: 10px;
+    visibility: hidden;
 }
 button {
     background: white;
@@ -24,7 +26,6 @@ img {
     border: none;
     width: 50px;
     height: 50px;
-    margin-right: 10px;
     }
 }
 .chat {
@@ -34,6 +35,7 @@ img {
         height: 450px;
         font-family: 'Roboto';
         overflow-Y: scroll;
+        overflow-x: hidden;
     
     div {
         font-size: 15px;
@@ -43,13 +45,20 @@ img {
             height: 30px;
             color: white;
         }
+        span  {
+            color: black;
+        }
         span:last-child {
+            margin-left: 40px;
+            @include tablet {
             float: right;
+
+            }
         }
         
     }
     p {
-        margin-top: 30px;
+        margin-top: 20px;
         display: flex;
         justify-content: start;
         font-size: 15px;

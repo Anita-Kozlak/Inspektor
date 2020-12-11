@@ -74,7 +74,7 @@ function Chat() {
                 <div
                   key={message.id}
                   style={{
-                    padding: 20,
+                    padding: 10,
                   }}
                 >
                   <div>
