@@ -48,6 +48,7 @@ const PasswordChange = (props) => {
         <h6>(wpisz swój email, a otrzymasz maila resetującego hasło)</h6>
         <input
           name="text"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

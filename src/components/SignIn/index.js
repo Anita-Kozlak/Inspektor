@@ -44,6 +44,7 @@ const SignInPage = (props) => {
             },
           })}
           value={email}
+          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <span>
@@ -58,6 +59,7 @@ const SignInPage = (props) => {
           name="password"
           type="password"
           autoComplete="current-password"
+          placeholder="Hasło"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

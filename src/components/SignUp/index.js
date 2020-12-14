@@ -62,6 +62,7 @@ const SignUpPage = (props) => {
               },
             })}
             value={email}
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <span>
@@ -72,6 +73,7 @@ const SignUpPage = (props) => {
             name="password"
             type="password"
             autoComplete="current-password"
+            placeholder="Hasło"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -93,6 +95,7 @@ const SignUpPage = (props) => {
             })}
             name="passwordConfirmation"
             type="password"
+            placeholder="Powtórz hasło"
             autoComplete="current-password"
           />
           {errors.passwordConfirmation && (

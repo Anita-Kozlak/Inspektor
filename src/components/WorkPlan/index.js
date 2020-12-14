@@ -1,11 +1,14 @@
 import React from "react";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
+import Calendar from "../Calendar"
 
 const WorkPlan = () => {
   return (
     <>
       {" "}
+
+      <Calendar />
       <div className="buttons">
         <MainViewLink />
         <SignOutButton />
