@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 const PasswordChange = (props) => {
 
-    const [msg, setMsg] = useState('')
+    // const [msg, setMsg] = useState('')
     const [email, setEmail] = useState('');
 
     const onChange = async (e) => {
@@ -25,7 +25,7 @@ const PasswordChange = (props) => {
           console.log("błąd");
         });
 
-        setMsg("Sprawdz swoją skrzynkę mailową");
+        // setMsg("Sprawdz swoją skrzynkę mailową");
 
     };
 
@@ -55,7 +55,7 @@ const PasswordChange = (props) => {
         <button className="btn" onClick={onChange}>
           wyślij
         </button>
-        <span>{msg}</span>
+        {/* <span>{msg}</span> */}
       </form>
     </div>
   );

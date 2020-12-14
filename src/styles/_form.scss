@@ -4,6 +4,7 @@
   margin: 0 auto;
   background-color: black;
   opacity: 0.8;
+  padding-bottom: 30px;
   @include tablet {
     margin: 100px auto 300px auto;
     padding: 60px;
@@ -11,6 +12,12 @@
     justify-content: space-around;
     max-width: 1000px;
   }
+  span {
+  color: grey;
+  display: flex;
+  justify-content: center;
+  margin-top: 3px;
+}
 }
 .container {
   display: flex;
@@ -49,12 +56,10 @@ h6 {
   text-align: center;
   color: gray;
 }
-span {
-  color: grey;
-}
+
 
 input {
-  margin-top: 30px;
+  // margin-top: 30px;
   font-size: 17px;
   display: block;
   margin: auto;
@@ -64,6 +69,7 @@ input {
   background: transparent;
   border-radius: 2px;
   margin-top: 5px;
+  margin-bottom: 5px;
   // margin-bottom: 10px;
   // height: 25px;
   @include tablet {

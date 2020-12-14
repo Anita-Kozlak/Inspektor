@@ -32,7 +32,6 @@ const SignInPage = (props) => {
         />
         <h1 className="heading">Inspektor</h1>
       </div>
-      <div></div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           name="email"
