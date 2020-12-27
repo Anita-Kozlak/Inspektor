@@ -58,7 +58,7 @@ const SignUpPage = (props) => {
               required: "Email jest wymagany!",
               pattern: {
                 value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: "Podany email jest nieparwidłowy!",
+                message: "Podany email jest nieprawidłowy!",
               },
             })}
             value={email}
@@ -107,7 +107,7 @@ const SignUpPage = (props) => {
                 <span>Hasło jest za krótkie!</span>
               )}
               {errors.passwordConfirmation.type === "sameAs" && (
-                <span>Hasło musi być takie same!</span>
+                <span>Hasło musi być takie samo!</span>
               )}
             </div>
           )}
