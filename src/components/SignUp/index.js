@@ -65,12 +65,12 @@ const SignUpPage = (props) => {
       </div>
       <form className="signUp" onSubmit={handleSubmit(onSubmit)}>
         <div className="form__registerGrey">
-          <label>Imię i Nazwsko</label>
           <input
             ref={register({ required: "Imię i nazwisko jest wymagane" })}
             name="name"
             type="name"
             value={name}
+            placeholder="Imię i Nazwisko"
             onChange={(e) => setName(e.target.value)}
           />
           <span>
@@ -90,9 +90,7 @@ const SignUpPage = (props) => {
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <span>
-            {errors.email && errors.email.message}
-          </span>
+          <span>{errors.email && errors.email.message}</span>
           <input
             ref={register({ required: true, minLength: 6 })}
             name="password"
