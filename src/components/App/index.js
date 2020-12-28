@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import SignUpPage from "../SignUp";
 import SignInPage from "../SignIn";
 import PasswordForgetPage from "../PasswordForget";
@@ -16,21 +16,21 @@ import Notes from "../Notes";
 import Info from "../Info";
 import { AuthProvider } from "../auth";
 import PrivateRoute from "../PrivateRoute";
+import firebase from "firebase";
 
-// import firebase, { messaging } from "firebase";
 const App = () => {
-  // useEffect(() => {
-  //   // firebase.auth().signOut();
-  //   const msg = firebase.messaging();
-  //   msg
-  //     .requestPermission()
-  //     .then(() => {
-  //       return msg.getToken();
-  //     })
-  //     .then((data) => {
-  //       console.log("token", data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    // firebase.auth().signOut();
+    const msg = firebase.messaging();
+    msg
+      .requestPermission()
+      .then(() => {
+        return msg.getToken();
+      })
+      .then((data) => {
+        console.log("token", data);
+      });
+  }, []);
   // msg.onMessage(function(payload) {
   //   console.log('onMessage', payload);
   // })

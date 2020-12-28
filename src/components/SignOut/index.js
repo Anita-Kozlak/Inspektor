@@ -7,7 +7,7 @@ const SignOutButton = (props) =>  {
 
     const onSignout = async () => {
     await firebase.auth().signOut();
-    // props.history.push("/");
+    props.history.push("/");
   };
 
      return (

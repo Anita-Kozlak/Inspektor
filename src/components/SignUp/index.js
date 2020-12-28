@@ -7,25 +7,50 @@ import firebase from "../Firebase/firebase";
 import { sameAs } from "../../Helpers/validators";
 import { useForm } from "react-hook-form";
 
+// const auth = firebase.auth();
+const db = firebase.firestore();
+
+
+
+  
 const SignUpPage = (props) => {
-
   const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [name, setName] = useState("")
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+ const { handleSubmit, register, errors, getValues } = useForm();
 
-  const { handleSubmit, register, errors, getValues } = useForm();
+ const onSubmit = (values) => {
+   return values;
+ };
+  const createUserProfile = (userProfile) =>
+  db.collection("profile").doc(userProfile.uid).set(userProfile);
 
-    const onSubmit = (values) => {
-      return values;
-    };
-    const onRegister= async () => {
 
-      try {
-        await firebase.auth().createUserWithEmailAndPassword(email, password)
-        props.history.push("/mainview");
-      } catch (error) {
-        console.log(error);
-      }
+
+
+ 
+    // const onRegister= async () => {
+    const onRegister = async () => {
+  try {
+    const res = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password);
+    const { user } = res;
+      props.history.push("/mainview");
+    const userProfile = { uid: user.uid, name, email }
+
+    await createUserProfile(userProfile);
+    return userProfile;
+  } catch(error) {
+    return Promise.reject(error.message)
+  }
+ 
+      // try {
+      //   await firebase.auth().createUserWithEmailAndPassword(email, password)
+      //   props.history.push("/mainview");
+      // } catch (error) {
+      //   console.log(error);
+      // }
     };
   return (
     <div className="formContainer">
@@ -40,7 +65,7 @@ const SignUpPage = (props) => {
       </div>
       <form className="signUp" onSubmit={handleSubmit(onSubmit)}>
         <div className="form__registerGrey">
-          {/* <label>Imię i Nazwsko</label>
+          <label>Imię i Nazwsko</label>
           <input
             ref={register({ required: "Imię i nazwisko jest wymagane" })}
             name="name"
@@ -51,7 +76,7 @@ const SignUpPage = (props) => {
           <span>
             {errors.name}
             <br />
-          </span> */}
+          </span>
           <input
             name="email"
             ref={register({

@@ -4,68 +4,88 @@
 }
 .chat-input {
     display: flex;
-    background: white;
+    background: #F0F2F5;
     width: 80vw;
     margin: auto;
 
 
 textarea {
     width: 80vw;
-    background: white;
+    background: #F0F2F5;
     font-size: 15px;
     border: none;
     padding: 20px;
     // visibility: hidden;
 }
 button {
-    background: white;
+    background: #F0F2F5;
     border: none;
     }
 img {
-    background: white;
+    background: #F0F2F5;
     border: none;
     width: 50px;
     height: 50px;
     }
 }
 .chat {
+        font-family: sans-serif;
         width: 80vw;
-        background:white;
+        background: #F0F2F5;
         margin: auto;
         height: 400px;
         font-family: 'Roboto';
         overflow-Y: scroll;
         overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
     
-    div {
+    .chatRight {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
         font-size: 15px;
         font-weight: bold;
+        // margin: auto;
+    }
+    .chatLeft {
+         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 15px;
+        font-weight: bold;
+        }
         img {
             width: 25px;
             height: 20px;
-            color: white;
+            background: #F0F2F5;
         }
         span  {
             color: black;
             font-size: 10px;
-        }
-        span:last-child {
-            margin-left: 30px;
-            @include tablet {
-            float: right;
+        // margin: auto;   
+     }
+        // span:last-child {
+            // margin-left: 30px;
+    //         @include tablet {
+    //         float: right;
 
-            }
-        }
+            // }
+    //     }
         
-    }
+    
     p {
         margin-top: 20px;
-        display: flex;
-        justify-content: start;
+        float: right;
+        // display: flex;
+        // flex: 1;
+        // justify-content: start;
         font-size: 15px;
-        background:rgb(243,222,176);
         padding: 15px;
         border-radius: 10px;
+        font-family: sans-serif;
+        font-weight: 300;
+        
         
     }
 }
