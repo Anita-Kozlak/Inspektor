@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import ScrollableFeed from "react-scrollable-feed";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -11,10 +12,58 @@ const db = firebase.firestore();
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+
+
+//notifications
+// const functions = require("firebase-functions");
+// const admin = require("firebase-admin");
+// admin.initializeApp(functions.config().firebase);
+
+// exports.sendNotificationToTopic = functions.firestore
+//   .document("puppies/{uid}")
+//   .onWrite(async (event) => {
+//     //let docID = event.after.id;
+//     let title = event.after.get("title");
+//     let content = event.after.get("content");
+//     var message = {
+//       notification: {
+//         title: title,
+//         body: content,
+//       },
+//       topic: "namelesscoder",
+//     };
+
+//     let response = await admin.messaging().send(message);
+//     console.log(response);
+//   });
+
+// exports.sendNotificationToFCMToken = functions.firestore
+//   .document("messages/{mUid}")
+//   .onWrite(async (event) => {
+//     const uid = event.after.get("userUid");
+//     const title = event.after.get("title");
+//     const content = event.after.get("content");
+//     let userDoc = await admin.firestore().doc(`users/${uid}`).get();
+//     let fcmToken = userDoc.get("fcm");
+
+//     var message = {
+//       notification: {
+//         title: title,
+//         body: content,
+//       },
+//       token: fcmToken,
+//     };
+
+//     let response = await admin.messaging().send(message);
+//     console.log(response);
+//   });
 function Chat() {
+    
   const [name, setName] = useState('')
 
+
 useEffect(() => {
+
   db.collection("profile")
     .get()
     .then((snapshot) => {
@@ -61,9 +110,11 @@ useEffect(() => {
     dummy.current.scrollIntoView({
       behavior: "smooth",
       block: "end",
-      // inline: "nearest",
+      inline: "nearest",
     });
+    
   }
+
 
   return (
     <>
@@ -71,41 +122,42 @@ useEffect(() => {
         <MainViewLink />
         <SignOutButton />
       </div>
-      <div id="ChatContainer" className="inner-container">
+      <div id="chatbox" className="inner-container">
         ​{" "}
-        <div className="chat">
-          {messages &&
-            messages.map((message) => {
-           
-              return (
-                <div className="chatRight"
-                  key={message.id}
-                  style={{
-                    padding: 10,
-                  }}
-                >
-                  <div>
-                    <span>
-                      {" "}
-                      {/* <img src="person.png" alt="icon"></img> */}
-                      {message.name}{" "}
-                    </span>
+        <ScrollableFeed>
+          <div id="chatmessages" className="chat">
+            {" "}
+            {messages &&
+              messages.map((message) => {
+                return (
+                  <div
+                    className="chatRight"
+                    key={message.id}
+                    style={{
+                      padding: 10,
+                    }}
+                  >
+                    <div>
+                      <span>
+                        {" "}
+                        {/* <img src="person.png" alt="icon"></img> */}
+                        {message.name}{" "}
+                      </span>
 
-                    <span>
-                      {message.createdAt &&
-                        new Date(
-                          message.createdAt.seconds * 1000,
-                        ).toLocaleString()}
-                    </span>
+                      <span>
+                        {message.createdAt &&
+                          new Date(
+                            message.createdAt.seconds * 1000,
+                          ).toLocaleString()}
+                      </span>
+                    </div>
+                    <p style={{ background: "#D4D0CF" }}>{message.text}</p>
                   </div>
-                  <p style={{ background: "#D4D0CF" }}>{message.text}</p>
-                </div>
-              );
-           
-             
-            })}
-          <div ref={dummy}></div>
-        </div>
+                );
+              })}
+            <div ref={dummy}></div>
+          </div>
+        </ScrollableFeed>
         <div className="chat-input">
           <textarea
             placeholder="Napisz wiadomość..."
