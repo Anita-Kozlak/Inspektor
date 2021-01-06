@@ -1,12 +1,12 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 100px auto;
   background-color: black;
   opacity: 0.8;
   padding-bottom: 30px;
   @include tablet {
-    margin: 100px auto 300px auto;
+    margin: 100px auto;
     padding: 60px;
     flex-direction: row;
     justify-content: space-around;

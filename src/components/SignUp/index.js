@@ -66,17 +66,23 @@ const SignUpPage = (props) => {
       <form className="signUp" onSubmit={handleSubmit(onSubmit)}>
         <div className="form__registerGrey">
           <input
-            ref={register({ required: "Imię i nazwisko jest wymagane" })}
+            ref={register({ required: true, minLength: 6 })}
             name="name"
             type="name"
-            value={name}
             placeholder="Imię i Nazwisko"
+            value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <span>
-            {errors.name}
-            <br />
-          </span>
+          {errors.name && (
+            <div>
+              {errors.name.type === "required" && (
+                <span>Imię i Nazwisko jest wymagane!</span>
+              )}
+              {errors.name.type === "minLength" && (
+                <span>Imię i Nazwisko jest za krótkie! </span>
+              )}
+            </div>
+          )}
           <input
             name="email"
             ref={register({
@@ -106,7 +112,7 @@ const SignUpPage = (props) => {
                 <span>Hasło jest wymagane!</span>
               )}
               {errors.password.type === "minLength" && (
-                <span>Hasło jest za krótkie! </span>
+                <span>Hasło powinno mieć minimum 6 znaków! </span>
               )}
             </div>
           )}
@@ -127,7 +133,7 @@ const SignUpPage = (props) => {
                 <span>Hasło jest wymagane! </span>
               )}
               {errors.passwordConfirmation.type === "minLength" && (
-                <span>Hasło jest za krótkie!</span>
+                <span>Hasło powinno mieć minimum 6 znaków!</span>
               )}
               {errors.passwordConfirmation.type === "sameAs" && (
                 <span>Hasło musi być takie samo!</span>
