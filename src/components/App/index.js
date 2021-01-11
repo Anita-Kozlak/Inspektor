@@ -22,7 +22,6 @@ import Navigation from "../Navigation"
 const App = () => {
   
   useEffect(() => {
-    // firebase.auth().signOut();
     const msg = firebase.messaging();
     msg
       .requestPermission()

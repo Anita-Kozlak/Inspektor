@@ -1,4 +1,3 @@
-
 import { AuthUserContext } from '../Session';
 import MainViewPage from '../MainView';
 import SignInPage from '../SignIn';
@@ -10,17 +9,16 @@ const Navigation = () => {
     const [userLogged, setUserLogged] = useState(false); // it keep tracks of user login status
     useEffect(() => {
       const authListener = firebase.auth().onAuthStateChanged((user) => {
+         
         setUserLogged(user ? true : false);
       });
       return authListener;
     }, []);
     return (
           <div>
-        {/* <AuthUserContext.Consumer> */}
             {
                 userLogged ? <NavigationAuth /> : <NavigationNonAuth />
             }
-        {/* </AuthUserContext.Consumer> */}
     </div>
     )
   

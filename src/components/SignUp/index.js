@@ -29,7 +29,6 @@ const SignUpPage = (props) => {
 
 
  
-    // const onRegister= async () => {
     const onRegister = async () => {
   try {
     const res = await firebase
@@ -45,12 +44,7 @@ const SignUpPage = (props) => {
     return Promise.reject(error.message)
   }
  
-      // try {
-      //   await firebase.auth().createUserWithEmailAndPassword(email, password)
-      //   props.history.push("/mainview");
-      // } catch (error) {
-      //   console.log(error);
-      // }
+
     };
   return (
     <div className="formContainer">

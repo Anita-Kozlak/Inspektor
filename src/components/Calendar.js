@@ -74,6 +74,8 @@
         */
         
         // get events
+
+        
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
           'timeMin': (new Date()).toISOString(),

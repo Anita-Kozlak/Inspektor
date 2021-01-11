@@ -49,7 +49,7 @@ const [name, setName] = useState("");
   }
   useLayoutEffect(() => {
     dummy.current.scrollIntoView({
-        // behavior: "auto",     
+        behavior: "auto",     
       
     });
   });
@@ -61,7 +61,7 @@ const [name, setName] = useState("");
       name: name,
       userUid: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU",
 
-      email: auth.currentUser.email,
+      // email: auth.currentUser.email,
     });
 
     setMessage("");
