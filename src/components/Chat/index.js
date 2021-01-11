@@ -1,5 +1,5 @@
 /* eslint no-useless-escape: 0 */
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import ScrollableFeed from "react-scrollable-feed";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
@@ -47,23 +47,25 @@ const [name, setName] = useState("");
       await onSubmit();
     }
   }
-
+  useLayoutEffect(() => {
+    dummy.current.scrollIntoView({
+        // behavior: "auto",     
+      
+    });
+  });
+   
   async function onSubmit() {
     await firestore.collection("chat").add({
       text: message,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       name: name,
-      userUid: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU"
+      userUid: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU",
 
-      // email: auth.currentUser.email,
+      email: auth.currentUser.email,
     });
 
     setMessage("");
-    dummy.current.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
-    });
+  
   }
 
   return (
@@ -82,27 +84,65 @@ const [name, setName] = useState("");
               messages.map((message) => {
                 return (
                   <div
-                    className="chatRight"
+                    className="chatContainer"
                     key={message.id}
                     style={{
                       padding: 10,
                     }}
                   >
-                    <div>
-                      <span>
-                        {" "}
-                        {/* <img src="person.png" alt="icon"></img> */}
-                        {message.name}{" "}
-                      </span>
+                    {message.name === name ? (
+                      <div
+                        className="chatRight"
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-end",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <div>
+                          <span>
+                            {" "}
+                            {/* <img src="person.png" alt="icon"></img> */}
+                            {message.name},{" "}
+                          </span>
 
-                      <span>
-                        {message.createdAt &&
-                          new Date(
-                            message.createdAt.seconds * 1000,
-                          ).toLocaleString()}
-                      </span>
-                    </div>
-                    <p style={{ background: "#D4D0CF" }}>{message.text}</p>
+                          <span>
+                            {message.createdAt &&
+                              new Date(
+                                message.createdAt.seconds * 1000,
+                              ).toLocaleString()}
+                          </span>
+                        </div>
+                        <p style={{ background: "#D4D0CF" }}>{message.text}</p>
+                      </div>
+                    ) : (
+                      <div
+                        className="chatLeft"
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <div>
+                          <span>
+                            {" "}
+                            {/* <img src="person.png" alt="icon"></img> */}
+                            {message.name},{" "}
+                          </span>
+
+                          <span>
+                            {message.createdAt &&
+                              new Date(
+                                message.createdAt.seconds * 1000,
+                              ).toLocaleString()}
+                          </span>
+                        </div>
+                        <p style={{ background: "lightblue", float: "left" }}>
+                          {message.text}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -129,58 +169,3 @@ const [name, setName] = useState("");
 }
 
 export default Chat;
-// import React from "react";
-// import moment from "moment";
-
-// const Chat = ({ messages, authUser }) => {
-//   const renderMessages = (messages, authUser) => {
-//     if (messages.length > 0) {
-//       return messages.map((message) => {
-//         // Message is from currently logged in USER
-//         if (message.user.uid === authUser.uid) {
-//           return (
-//             <div key={message.id} className="viewWrapItemLeft">
-//               <div className="viewWrapItemLeft3">
-//                 <img
-//                   src={message.user.avatar}
-//                   alt="avatar"
-//                   className="peerAvatarLeft"
-//                 />
-//                 <div className="viewItemLeft">
-//                   <span className="textContentItem">{message.content}</span>
-//                 </div>
-//               </div>
-//               <span className="textTimeLeft">
-//                 {moment(message.timestamp).fromNow()}
-//               </span>
-//             </div>
-//           );
-//         }
-
-//         return (
-//           <div key={message.id} className="viewWrapItemRight">
-//             <div className="viewWrapItemRight3">
-//               <img
-//                 src={message.user.avatar}
-//                 alt="avatar"
-//                 className="peerAvatarLeft"
-//               />
-//               <div className="viewItemRight">
-//                 <span className="textContentItem">{message.content}</span>
-//               </div>
-//             </div>
-//             <span className="textTimeLeft">
-//               {moment(message.timestamp).fromNow()}
-//             </span>
-//           </div>
-//         );
-//       });
-//     }
-
-//     return null;
-//   };
-
-//   return renderMessages(messages, authUser);
-// };
-
-// export default Chat;

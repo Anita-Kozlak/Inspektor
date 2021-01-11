@@ -1,5 +1,4 @@
 .inner-container {
-    // margin-top: 30px;
     margin-bottom: 50px;
 }
 .chat-input {
@@ -11,18 +10,17 @@
 
 textarea {
     width: 80vw;
-    background: #F0F2F5;
+    background: ivory;
     font-size: 15px;
-    border: none;
     padding: 20px;
-    // visibility: hidden;
+    border: none;
 }
-button {
-    background: #F0F2F5;
+button {        
+    background: ivory;
     border: none;
     }
 img {
-    background: #F0F2F5;
+    background: ivory;
     border: none;
     width: 50px;
     height: 50px;
@@ -39,22 +37,16 @@ img {
         overflow-x: hidden;
         display: flex;
         flex-direction: column;
-    
-    .chatRight {
+   
+    .chatContainer {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        // align-items: flex-end;
         font-size: 15px;
         font-weight: bold;
         // margin: auto;
     }
-    .chatLeft {
-         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-size: 15px;
-        font-weight: bold;
-        }
+   
         img {
             width: 25px;
             height: 20px;
@@ -63,23 +55,13 @@ img {
         span  {
             color: black;
             font-size: 10px;
-        // margin: auto;   
      }
-        // span:last-child {
-            // margin-left: 30px;
-    //         @include tablet {
-    //         float: right;
-
-            // }
-    //     }
+    
         
     
     p {
         margin-top: 20px;
-        float: right;
-        // display: flex;
-        // flex: 1;
-        // justify-content: start;
+        float: left;
         font-size: 15px;
         padding: 15px;
         border-radius: 10px;

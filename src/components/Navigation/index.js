@@ -29,9 +29,7 @@ const Navigation = () => {
 const NavigationAuth = () => (
     <ul>
         <MainViewPage />
-        <li>
-            Zalogowany
-        </li>
+      
     </ul>
 );
 const NavigationNonAuth = () => (

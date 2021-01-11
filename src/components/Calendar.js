@@ -57,6 +57,7 @@
           }
         }
 
+
         var request = gapi.client.calendar.events.insert({
           'calendarId': 'primary',
           'resource': event,
@@ -95,8 +96,7 @@
   return (
     <div className="App">
       <header className="App-header">
-        <p>Click to add event to Google Calendar</p>
-        <button style={{width: 100, height: 50}} onClick={handleClick}>Add Event</button>
+        <button style={{width: 200, height: 50, marginBottom: 50}} onClick={handleClick}>Dodaj plan pracy</button>
       </header>
     </div>
   );
