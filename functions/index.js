@@ -7,3 +7,28 @@ const functions = require('firebase-functions');
 //   functions.logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
 // });
+const admin = require("firebase-admin");
+admin.initializeApp(functions.config().firebase);
+
+ 
+
+ exports.sendNotificationToFCMToken = functions.firestore
+   .document("chat/{mUid}")
+   .onWrite(async (event) => {
+     const uid = event.after.get("userUid");
+     const name = event.after.get("name");
+     const text = event.after.get("text");
+     let userDoc = await admin.firestore().doc(`users/${uid}`).get();
+     let fcmToken = userDoc.get("fcm");
+
+     var message = {
+       notification: {
+         title: name,
+         body: text,
+       },
+       token: fcmToken,
+     };
+
+     let response = await admin.messaging().send(message);
+     console.log(response);
+   });

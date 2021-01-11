@@ -17,7 +17,7 @@ const SignInPage = (props) => {
     const onLogin = async () => {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password);
-        props.history.push("/mainview");
+        // props.history.push("/mainview");
       } catch (error) {
         console.log(error);
       }

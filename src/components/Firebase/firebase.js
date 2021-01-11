@@ -3,6 +3,7 @@ import "firebase/auth";
 import "firebase/database";
 import "firebase/firestore"
 
+
 const config = {
   apiKey: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU",
   authDomain: "inspektor-57add.firebaseapp.com",
@@ -11,6 +12,7 @@ const config = {
   storageBucket: "inspektor-57add.appspot.com",
   messagingSenderId: "175611888660",
   appId: "1:175611888660:web:7d757dfb1587932e691301",
+  measurementId: "G-T5QM09LKSB",
 };
 
 

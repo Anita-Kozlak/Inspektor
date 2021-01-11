@@ -17,8 +17,10 @@ import Info from "../Info";
 import { AuthProvider } from "../auth";
 import PrivateRoute from "../PrivateRoute";
 import firebase from "firebase";
+import Navigation from "../Navigation"
 
 const App = () => {
+  
   useEffect(() => {
     // firebase.auth().signOut();
     const msg = firebase.messaging();
@@ -35,13 +37,13 @@ const App = () => {
   //   console.log('onMessage', payload);
   // })
   return (
+
     <AuthProvider>
-      {/* <Calendar /> */}
       <Router>
         <Switch>
-          <Route exact path="/" component={SignInPage} />
+          {/* <Route exact path="/" component={SignInPage} /> */}
           <Route exact path="/signup" component={SignUpPage} />
-        
+          <Route exact path="/" component={Navigation} />
           <Route exact path="/pw-forget" component={PasswordForgetPage} />
           {/* <Route path={ROUTES.ADMIN} component={AdminPage} /> */}
           {/* <Route exact path="/mainview" component={MainViewPage} /> */}

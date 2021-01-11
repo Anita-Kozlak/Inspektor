@@ -25,6 +25,7 @@
     "react-scripts": "3.4.3",
     "react-scrollable-feed": "^1.2.0",
     "recompose": "^0.30.0",
+    "request": "^2.79.0",
     "xlsx": "^0.16.9"
   },
   "scripts": {

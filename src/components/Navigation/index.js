@@ -1,34 +1,44 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
 
-// import SignOutButton from '../SignOut';
-// import * as ROUTES from '../../constants/routes';
-// import { AuthUserContext } from '../Session';
+import { AuthUserContext } from '../Session';
+import MainViewPage from '../MainView';
+import SignInPage from '../SignIn';
+import React, {  useState, useEffect } from "react";
+import firebase from "../Firebase/firebase";
 
-// const Navigation = () => (
-//     <div>
-//         <AuthUserContext.Consumer>
-//             {authUser =>
-//                 authUser ? <NavigationAuth /> : <NavigationNonAuth />
-//             }
-//         </AuthUserContext.Consumer>
-//     </div>
-// );
+const Navigation = () => {
 
-// const NavigationAuth = () => (
-//     <ul>
-//         <li>
-//             <SignOutButton />
-//         </li>
-//     </ul>
-// );
-// const NavigationNonAuth = () => (
-//     <ul>
-//         <li className="btnSignIn">
-//             <Link to={ROUTES.SIGN_IN} style={{textDecoration: 'none', color: "white"}}>Zaloguj</Link>
-//         </li>
+    const [userLogged, setUserLogged] = useState(false); // it keep tracks of user login status
+    useEffect(() => {
+      const authListener = firebase.auth().onAuthStateChanged((user) => {
+        setUserLogged(user ? true : false);
+      });
+      return authListener;
+    }, []);
+    return (
+          <div>
+        {/* <AuthUserContext.Consumer> */}
+            {
+                userLogged ? <NavigationAuth /> : <NavigationNonAuth />
+            }
+        {/* </AuthUserContext.Consumer> */}
+    </div>
+    )
+  
+        };
 
-//     </ul>
-// );
+const NavigationAuth = () => (
+    <ul>
+        <MainViewPage />
+        <li>
+            Zalogowany
+        </li>
+    </ul>
+);
+const NavigationNonAuth = () => (
+    <ul>
+       <SignInPage />
 
-// export default Navigation;
+    </ul>
+);
+
+export default Navigation;

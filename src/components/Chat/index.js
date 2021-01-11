@@ -1,3 +1,4 @@
+/* eslint no-useless-escape: 0 */
 import React, { useRef, useState, useEffect } from "react";
 import ScrollableFeed from "react-scrollable-feed";
 import MainViewLink from "../Link/MainViewLink";
@@ -8,77 +9,27 @@ import "firebase/auth";
 import "firebase/database"
 import * as firebase from "firebase";
 const db = firebase.firestore();
-
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-
-
-//notifications
-// const functions = require("firebase-functions");
-// const admin = require("firebase-admin");
-// admin.initializeApp(functions.config().firebase);
-
-// exports.sendNotificationToTopic = functions.firestore
-//   .document("puppies/{uid}")
-//   .onWrite(async (event) => {
-//     //let docID = event.after.id;
-//     let title = event.after.get("title");
-//     let content = event.after.get("content");
-//     var message = {
-//       notification: {
-//         title: title,
-//         body: content,
-//       },
-//       topic: "namelesscoder",
-//     };
-
-//     let response = await admin.messaging().send(message);
-//     console.log(response);
-//   });
-
-// exports.sendNotificationToFCMToken = functions.firestore
-//   .document("messages/{mUid}")
-//   .onWrite(async (event) => {
-//     const uid = event.after.get("userUid");
-//     const title = event.after.get("title");
-//     const content = event.after.get("content");
-//     let userDoc = await admin.firestore().doc(`users/${uid}`).get();
-//     let fcmToken = userDoc.get("fcm");
-
-//     var message = {
-//       notification: {
-//         title: title,
-//         body: content,
-//       },
-//       token: fcmToken,
-//     };
-
-//     let response = await admin.messaging().send(message);
-//     console.log(response);
-//   });
 function Chat() {
-    
-  const [name, setName] = useState('')
 
+const [name, setName] = useState("");
 
-useEffect(() => {
-
-  db.collection("profile")
-    .get()
-    .then((snapshot) => {
-      snapshot.forEach((doc) => {
-        let element = doc.data();
-        if (auth.currentUser.email === element.email) {
-          const name = element.name;
-          setName(name)
-
-        }
+  useEffect(() => {
+    db.collection("profile")
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          let element = doc.data();
+          if (auth.currentUser.email === element.email) {
+            const name = element.name;
+            setName(name);
+          }
+        });
       });
-    });
-}, []);
+  }, []);
 
- 
   const [message, setMessage] = useState("");
   const dummy = useRef();
   const [messages] = useCollectionData(
@@ -98,11 +49,12 @@ useEffect(() => {
   }
 
   async function onSubmit() {
-   
     await firestore.collection("chat").add({
       text: message,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      name: name
+      name: name,
+      userUid: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU"
+
       // email: auth.currentUser.email,
     });
 
@@ -112,12 +64,11 @@ useEffect(() => {
       block: "end",
       inline: "nearest",
     });
-    
   }
-
 
   return (
     <>
+      {" "}
       <div className="buttons">
         <MainViewLink />
         <SignOutButton />
