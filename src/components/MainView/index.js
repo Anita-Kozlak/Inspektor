@@ -14,9 +14,9 @@ const MainViewPage = () => {
         <Link to="/regulations">
           <h1 className="regulations view">REGULAMINY</h1>
         </Link>
-        <Link to="/cast">
-          <h1 className="cast view">skład orkiestry</h1>
-        </Link>
+        {/* <Link to="/cast"> */}
+          <h1 className="cast view"></h1>
+        {/* </Link> */}
         <a
           href="/Repertuar_sezonu.pdf"
           target="_blank"
@@ -28,15 +28,15 @@ const MainViewPage = () => {
           <h1 className="contact view">DANE KONTAKTOWE</h1>
         </Link>
         <span className="reg view"></span>
-        <Link to="/notes">
-          <h1 className="notes view">NUTY DO POBRANIA</h1>
-        </Link>
+        {/* <Link to="/notes"> */}
+          <h1 className="notes view"></h1>
+        {/* </Link> */}
         <Link to="reviews">
           <h1 className="reviews view">RECENZJE</h1>
         </Link>
-        <Link to="/info">
-          <h1 className="info view">info</h1>
-        </Link>
+        {/* <Link to="/info"> */}
+          <h1 className="info view"></h1>
+        {/* </Link> */}
         <Link to="/chat">
           <h1 className="messenger view">CHAT</h1>
         </Link>
@@ -56,7 +56,7 @@ const MainViewPage = () => {
         >
           Dostępność sal
         </a>
-        <h1 className="tickets view">BILETY</h1>
+        <h1 className="tickets view"></h1>
       </div>
     </>
   );

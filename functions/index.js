@@ -22,7 +22,7 @@ admin.initializeApp(functions.config().firebase);
      let fcmToken = userDoc.get("fcm");
 
      var message = {
-       to: "FCM registration ID",
+      //  to: "FCM registration ID",
 
        notification: {
          title: name,

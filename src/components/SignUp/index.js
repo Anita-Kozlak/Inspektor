@@ -7,7 +7,6 @@ import firebase from "../Firebase/firebase";
 import { sameAs } from "../../Helpers/validators";
 import { useForm } from "react-hook-form";
 
-// const auth = firebase.auth();
 const db = firebase.firestore();
 
 

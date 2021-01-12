@@ -40,12 +40,9 @@ const App = () => {
     <AuthProvider>
       <Router>
         <Switch>
-          {/* <Route exact path="/" component={SignInPage} /> */}
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/" component={Navigation} />
           <Route exact path="/pw-forget" component={PasswordForgetPage} />
-          {/* <Route path={ROUTES.ADMIN} component={AdminPage} /> */}
-          {/* <Route exact path="/mainview" component={MainViewPage} /> */}
           <Route exact path="/workplan" component={WorkPlan} />
           <Route exact path="/firstweek" component={FirstWeek} />
           <Route exact path="/cast" component={Cast} />
