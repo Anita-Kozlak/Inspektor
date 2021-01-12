@@ -12,7 +12,7 @@ const WorkPlan = () => {
         <SignOutButton />
       </div>
       <div className="firstWeek">
-        <Calendar />
+        {/* <Calendar /> */}
         <iframe
           title="This is a unique title"
           src="https://calendar.google.com/calendar/embed?src=iqopqmhjcn4ouegk95atk23ab0%40group.calendar.google.com&ctz=Europe%2FWarsaw"
