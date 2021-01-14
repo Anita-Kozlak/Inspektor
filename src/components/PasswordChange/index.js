@@ -41,7 +41,7 @@ const PasswordChange = (props) => {
         </Link>
       </div>
 
-      <form onSubmit={e => e.pre}>
+      <form onSubmit={e => e.preventDefault()}>
         <h1>
           Zmień hasło <br></br>
         </h1>
@@ -62,46 +62,3 @@ const PasswordChange = (props) => {
 };
 
 export default PasswordChange;
-
-// import React from "react";
-// import Input from "@material-ui/core/Input";
-// import Button from "@material-ui/core/Button";
-// import { useState } from "react";
-// import firebase from "./firebase";
-
-// const PasswordChange = () => {
-//   const [email, setEmail] = useState("");
-
-//   const onChange = async () => {
-//     var auth = firebase.auth();
-//     var emailAddress = email;
-
-//     auth
-//       .sendPasswordResetEmail(emailAddress)
-//       .then(function () {
-//         console.log("hasło wysłane");
-//       })
-//       .catch(function (error) {
-//         console.log("błąd");
-//       });
-//   };
-//   return (
-//     <div className="changePassword">
-//       <h1>
-//         Zmień hasło <br></br>
-//         <h4>(wpisz swój email, otrzymasz maila resetującego hasło)</h4>
-//       </h1>
-//       <form>
-//         <label>Email użytkownika:</label>
-//         <input
-//           name="text"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//         />
-//         <button className="btn" onClick={onChange}>Wyślij</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default PasswordChange;

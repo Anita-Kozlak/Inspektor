@@ -7,10 +7,11 @@ import firebase from "../Firebase/firebase";
 const SignOutButton = (props) =>  {
 
     const onSignout = async () => {
-      await firebase.auth().signOut();
+      await firebase.auth().signOut()
+       .then(()=> {
       props.history.push("/");
-    };
-
+    })
+  }
      return (
         //  <Link to="/">
           //  {" "}
@@ -20,6 +21,5 @@ const SignOutButton = (props) =>  {
         //  </Link>
      );
  }
-
 
  export default withRouter(SignOutButton);

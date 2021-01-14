@@ -8,8 +8,8 @@ const Navigation = () => {
 
     const [userLogged, setUserLogged] = useState(false); // it keep tracks of user login status
     useEffect(() => {
+      
       const authListener = firebase.auth().onAuthStateChanged((user) => {
-         
         setUserLogged(user ? true : false);
       });
       return authListener;

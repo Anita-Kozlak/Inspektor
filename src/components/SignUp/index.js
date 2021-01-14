@@ -16,32 +16,49 @@ const SignUpPage = (props) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [error, setError] = useState("")
  const { handleSubmit, register, errors, getValues } = useForm();
 
  const onSubmit = (values) => {
    return values;
  };
-  const createUserProfile = (userProfile) =>
-  db.collection("profile").doc(userProfile.uid).set(userProfile);
-
-
 
 
  
-    const onRegister = async () => {
+  const onRegister = async () => {
+     
+    const createUserProfile = (userProfile) =>
+    db.collection("profile").doc(userProfile.uid).set(userProfile);
+     
   try {
     const res = await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password);
+
+      
     const { user } = res;
       props.history.push("/mainview");
     const userProfile = { uid: user.uid, name, email }
 
+
+     firebase.auth().currentUser
+       .sendEmailVerification()
+       .then(function () {
+         // Email sent.
+       })
+       .catch(function (error) {
+         // An error happened.
+       });
+
     await createUserProfile(userProfile);
     return userProfile;
   } catch(error) {
+    setError("Błędne dane lub konto już istnieje w systemie");
     return Promise.reject(error.message)
+    
   }
+
+  
  
 
     };
@@ -109,7 +126,8 @@ const SignUpPage = (props) => {
               )}
             </div>
           )}
-          <input
+          <span>{error}</span>
+          {/* <input
             ref={register({
               required: true,
               minLength: 6,
@@ -132,7 +150,7 @@ const SignUpPage = (props) => {
                 <span>Hasło musi być takie samo!</span>
               )}
             </div>
-          )}
+          )} */}
         </div>
         <button className="btn" onClick={onRegister} type="submit">
           Zarejestruj się

@@ -8,7 +8,7 @@ import PasswordForgetLink from "../Link/PaswordForgetLink";
 const SignInPage = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [error, setError] = useState("");
 
     const { handleSubmit, register, errors } = useForm();
     const onSubmit = (values) => {
@@ -20,7 +20,8 @@ const SignInPage = (props) => {
         // props.history.push("/mainview");
       } catch (error) {
         console.log(error);
-      }
+        setError("Hasło lub email jest nieprawidłowy")
+      } 
     };
 
   return (
@@ -72,6 +73,8 @@ const SignInPage = (props) => {
             )}
           </div>
         )}
+        {error && <span>{error}</span>}
+
         <button onClick={onLogin} className="btn" type="submit">
           Zaloguj się
         </button>

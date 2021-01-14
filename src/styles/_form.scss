@@ -1,10 +1,11 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  margin: 30px auto;
+  // margin: 30px auto;
   background-color: black;
   opacity: 0.9;
   padding-bottom: 150px;
+  
   @include tablet {
     margin: 100px auto;
     padding: 60px;
