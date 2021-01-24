@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SignUpLink = () => {
   return (
-    <p style={{ color: "#d9d9d9" }}>
+    <p style={{ color: "#d9d9d9" }} className="link">
       Nie masz konta?{" "}
       <Link
         to='/signup'

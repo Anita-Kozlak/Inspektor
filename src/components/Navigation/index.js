@@ -1,4 +1,3 @@
-import { AuthUserContext } from '../Session';
 import MainViewPage from '../MainView';
 import SignInPage from '../SignIn';
 import React, {  useState, useEffect } from "react";

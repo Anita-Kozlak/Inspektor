@@ -13,12 +13,9 @@ const SignOutButton = (props) =>  {
     })
   }
      return (
-        //  <Link to="/">
-          //  {" "}
-           <button className="btnSignOut" type="button" onClick={onSignout}>
+           <button className="nav" type="button" onClick={onSignout}>
              Wyloguj
            </button>
-        //  </Link>
      );
  }
 

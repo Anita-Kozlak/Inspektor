@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import SignUpLink from "../Link/SignUpLink";
 import PasswordForgetLink from "../Link/PaswordForgetLink";
 
-const SignInPage = (props) => {
+const SignInPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");

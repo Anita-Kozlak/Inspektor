@@ -26,6 +26,7 @@
     "react-scrollable-feed": "^1.2.0",
     "recompose": "^0.30.0",
     "request": "^2.79.0",
+    "styled-components": "^5.2.1",
     "xlsx": "^0.16.9"
   },
   "scripts": {

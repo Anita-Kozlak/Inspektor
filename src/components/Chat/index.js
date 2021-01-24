@@ -12,7 +12,7 @@ const db = firebase.firestore();
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-function Chat() {
+function Chat(props) {
 
 const [name, setName] = useState("");
 
@@ -26,7 +26,7 @@ const [name, setName] = useState("");
             const name = element.name;
             setName(name);
           }
-        });
+        })
       });
   }, []);
 
@@ -59,6 +59,7 @@ const [name, setName] = useState("");
       text: message,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       name: name,
+      // userUid: firebase.auth().currentUser.uid,
       userUid: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU",
 
       // email: auth.currentUser.email,

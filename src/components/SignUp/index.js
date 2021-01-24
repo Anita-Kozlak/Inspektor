@@ -4,7 +4,7 @@ import React from 'react';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../Firebase/firebase";
-import { sameAs } from "../../Helpers/validators";
+// import { sameAs } from "../../Helpers/validators";
 import { useForm } from "react-hook-form";
 
 const db = firebase.firestore();
@@ -17,7 +17,10 @@ const SignUpPage = (props) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("")
- const { handleSubmit, register, errors, getValues } = useForm();
+
+  // const { handleSubmit, register, errors, getValues } = useForm();
+
+  const { handleSubmit, register, errors } = useForm();
 
  const onSubmit = (values) => {
    return values;
@@ -27,31 +30,30 @@ const SignUpPage = (props) => {
  
   const onRegister = async () => {
      
+    //db
     const createUserProfile = (userProfile) =>
     db.collection("profile").doc(userProfile.uid).set(userProfile);
-     
+
+    //auth
   try {
     const res = await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password);
 
-      
     const { user } = res;
-      props.history.push("/mainview");
-    const userProfile = { uid: user.uid, name, email }
+    const userProfile = { uid: user.uid, name, email };
 
-
-     firebase.auth().currentUser
-       .sendEmailVerification()
-       .then(function () {
-         // Email sent.
-       })
-       .catch(function (error) {
-         // An error happened.
-       });
-
-    await createUserProfile(userProfile);
-    return userProfile;
+    firebase
+      .auth()
+      .currentUser.sendEmailVerification()
+      .then(function () {
+        props.history.push("/mainview");
+        // Email sent.
+      })
+      .catch(function (error) {
+        // An error happened.
+      });
+  await createUserProfile(userProfile);
   } catch(error) {
     setError("Błędne dane lub konto już istnieje w systemie");
     return Promise.reject(error.message)
@@ -59,7 +61,7 @@ const SignUpPage = (props) => {
   }
 
   
- 
+
 
     };
   return (

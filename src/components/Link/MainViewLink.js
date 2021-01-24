@@ -5,7 +5,7 @@ const MainViewLink = () => {
   return (
     <p>
       <Link to="/mainview">
-        <button className="btnSignOut" type="button">
+        <button className="nav" type="button">
           Strona Główna
         </button>
       </Link>

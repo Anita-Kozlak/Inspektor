@@ -21,11 +21,11 @@ admin.initializeApp(functions.config().firebase);
      let fcmToken = userDoc.get("fcm");
 
      var message = {
-      //  to: "FCM registration ID",
+        to: "allDevices",
 
        notification: {
-         title: name,
-         body: text,
+        title: name,
+        body: text,
        },
        token: fcmToken,
      };
@@ -33,3 +33,4 @@ admin.initializeApp(functions.config().firebase);
      let response = await admin.messaging().send(message);
      console.log(response);
    });
+

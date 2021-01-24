@@ -4,6 +4,8 @@ import * as XLSX from "xlsx";
 
 function Excel() {
 
+  //jak czytać z exela
+  
   const [items, setItems] = useState([]);
 
 

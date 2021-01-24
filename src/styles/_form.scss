@@ -1,10 +1,12 @@
+
 .formContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   // margin: 30px auto;
   background-color: black;
   opacity: 0.9;
-  padding-bottom: 150px;
+  padding-bottom: 100px;
   
   @include tablet {
     margin: 100px auto;
@@ -13,6 +15,25 @@
     justify-content: space-around;
     max-width: 1000px;
   }
+  input {
+  font-size: 17px;
+  display: block;
+  margin: auto;
+  padding: 16px 13px;
+  color: $grey;
+  border: 1px solid $grey;
+  background: transparent;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  @include tablet {
+    width: 300px;
+    margin-bottom: 15px;
+    height: 42px;
+
+
+  }
+}
   span {
   color: grey;
   display: flex;
@@ -58,30 +79,9 @@ h6 {
 }
 
 
-input {
-  // margin-top: 30px;
-  font-size: 17px;
-  display: block;
-  margin: auto;
-  padding: 16px 13px;
-  color: $grey;
-  border: 1px solid $grey;
-  background: transparent;
-  border-radius: 2px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  // margin-bottom: 10px;
-  // height: 25px;
-  @include tablet {
-    width: 300px;
-    margin-bottom: 15px;
-    height: 42px;
 
 
-  }
-}
-
-p {
+.link {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 23px;
@@ -92,6 +92,7 @@ p {
 .buttons {
   display: flex;
   justify-content: space-between;
+  margin: 20px;
 }
 .btn {
   font-size: 18px;
@@ -136,15 +137,15 @@ form.signUp {
 .btnSignIn {
   background-color: black;
   color: white;
-  width: 70px;
+  font-family: 'Lato', sans-serif;
+  // width: 70px;
   height: 40px;
-  font-size: 12px;
+  // font-size: 12px;
   
   border: none;
   text-transform: uppercase;
   border-radius: 2px;
-  margin: 20px;
-  opacity: 0.7;
+  // opacity: 0.7;
   &:hover {
     color: $hover;
     background-color: black;
@@ -156,10 +157,3 @@ form.signUp {
   }
 }
 
-
-//passwordForget
-
-.passwordForget {
-  margin-top: 150px;
-
-}

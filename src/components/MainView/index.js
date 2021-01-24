@@ -4,7 +4,7 @@ import SignOutButton from "../SignOut";
 
 const MainViewPage = () => {
   return (
-    <>
+    <div className="mainViewPage">
       {" "}
       <SignOutButton />
       <div className="mainView">
@@ -14,9 +14,7 @@ const MainViewPage = () => {
         <Link to="/regulations">
           <h1 className="regulations view">REGULAMINY</h1>
         </Link>
-        {/* <Link to="/cast"> */}
-          <h1 className="cast view"></h1>
-        {/* </Link> */}
+          <div className="cast view"></div>
         <a
           href="/Repertuar_sezonu.pdf"
           target="_blank"
@@ -28,15 +26,13 @@ const MainViewPage = () => {
           <h1 className="contact view">DANE KONTAKTOWE</h1>
         </Link>
         <span className="reg view"></span>
-        {/* <Link to="/notes"> */}
-          <h1 className="notes view"></h1>
-        {/* </Link> */}
+        <Link to="/admin">
+          <h1 className="admin view">ADMIN</h1>
+        </Link>
         <Link to="reviews">
           <h1 className="reviews view">RECENZJE</h1>
         </Link>
-        {/* <Link to="/info"> */}
-          <h1 className="info view"></h1>
-        {/* </Link> */}
+          <div className="info view"></div>
         <Link to="/chat">
           <h1 className="messenger view">CHAT</h1>
         </Link>
@@ -56,9 +52,9 @@ const MainViewPage = () => {
         >
           Dostępność sal
         </a>
-        <h1 className="tickets view"></h1>
+        <div className="tickets view"></div>
       </div>
-    </>
+    </div>
   );
 };
 
