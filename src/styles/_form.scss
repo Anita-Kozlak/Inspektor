@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // margin: 30px auto;
   background-color: black;
   opacity: 0.9;
   padding-bottom: 100px;
@@ -132,7 +131,9 @@ form.signUp {
 
 }
 
-
+.btnOut {
+  margin: 20px;
+}
 .btnSignOut,
 .btnSignIn {
   background-color: black;

@@ -6,7 +6,9 @@ const MainViewPage = () => {
   return (
     <div className="mainViewPage">
       {" "}
-      <SignOutButton />
+      <div className="btnOut">
+        <SignOutButton />
+      </div>
       <div className="mainView">
         <Link to="/workplan">
           <h1 className="workPlan view">PLAN PRACY</h1>{" "}
@@ -14,7 +16,7 @@ const MainViewPage = () => {
         <Link to="/regulations">
           <h1 className="regulations view">REGULAMINY</h1>
         </Link>
-          <div className="cast view"></div>
+        <div className="cast view"></div>
         <a
           href="/Repertuar_sezonu.pdf"
           target="_blank"
@@ -32,7 +34,7 @@ const MainViewPage = () => {
         <Link to="reviews">
           <h1 className="reviews view">RECENZJE</h1>
         </Link>
-          <div className="info view"></div>
+        <div className="info view"></div>
         <Link to="/chat">
           <h1 className="messenger view">CHAT</h1>
         </Link>
