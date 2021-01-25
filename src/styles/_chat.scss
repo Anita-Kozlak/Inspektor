@@ -48,28 +48,17 @@ img {
         flex-direction: column;
          @include tablet {
         width: 600px;
-
-
     }
-   
-    .chatContainer {
+.chatContainer {
         display: flex;
         flex-direction: column;
         font-size: 15px;
         font-weight: bold;
+         }
+    span  {
+        color: black;
+        font-size: 10px;
     }
-   
-        img {
-            width: 25px;
-            height: 20px;
-            background: #F0F2F5;
-        }
-        span  {
-            color: black;
-            font-size: 10px;
-     }
-    
-        
     
     p {
         margin-top: 20px;
@@ -79,7 +68,5 @@ img {
         border-radius: 10px;
         font-family: sans-serif;
         font-weight: 300;
-        
-        
     }
 }

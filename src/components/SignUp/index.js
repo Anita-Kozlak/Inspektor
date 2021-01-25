@@ -60,10 +60,9 @@ const SignUpPage = (props) => {
     
   }
 
-  
+};
 
 
-    };
   return (
     <div className="formContainer">
       <div className="container">

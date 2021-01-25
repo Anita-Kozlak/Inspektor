@@ -59,7 +59,6 @@ const [name, setName] = useState("");
       text: message,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       name: name,
-      // userUid: firebase.auth().currentUser.uid,
       userUid: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU",
 
       // email: auth.currentUser.email,
@@ -103,7 +102,6 @@ const [name, setName] = useState("");
                         <div>
                           <span>
                             {" "}
-                            {/* <img src="person.png" alt="icon"></img> */}
                             {message.name},{" "}
                           </span>
 
@@ -128,8 +126,7 @@ const [name, setName] = useState("");
                         <div>
                           <span>
                             {" "}
-                            {/* <img src="person.png" alt="icon"></img> */}
-                            {message.name},{" "}
+\                            {message.name},{" "}
                           </span>
 
                           <span>

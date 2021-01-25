@@ -17,7 +17,6 @@ const SignInPage = () => {
     const onLogin = async () => {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password);
-        // props.history.push("/mainview");
       } catch (error) {
         console.log(error);
         setError("Hasło lub email jest nieprawidłowy")
@@ -54,7 +53,6 @@ const SignInPage = () => {
         <input
           ref={register({
             required: true,
-            // minLength: 6,
           })}
           name="password"
           type="password"

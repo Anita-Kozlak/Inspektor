@@ -42,7 +42,7 @@ const AdminWorkPlan = () => {
           <input value={title} onChange={changeTitle}></input>
         </div>
         <div>
-          <label> Data - od</label>
+          <label>Data - od</label>
           <input
             onChange={changeDataStart}
             type="datetime-local"
@@ -55,7 +55,7 @@ const AdminWorkPlan = () => {
           />
         </div>
         <div>
-          <label> Data - do</label>
+          <label>Data - do</label>
           <input
             onChange={changeDataEnd}
             type="datetime-local"

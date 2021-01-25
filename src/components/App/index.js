@@ -21,8 +21,8 @@ import AdminInfo from "../AdminInfo";
 const App = () => {
   
   useEffect(() => {
-    // firebase.auth().signOut();
 
+    //wysyłanie powiadomień cloud messaging
     const msg = firebase.messaging();
     msg
       .requestPermission()
@@ -33,9 +33,7 @@ const App = () => {
         console.log("token", data);
       });
   }, []);
-  // msg.onMessage(function(payload) {
-  //   console.log('onMessage', payload);
-  // })
+
   return (
     <AuthProvider>
       <Router>
@@ -48,7 +46,7 @@ const App = () => {
           <Route exact path="/reviews" component={Reviews} />
           <Route exact path="/regulations" component={Regulations} />
           <Route exact path="/contact" component={Contact} />
-          ​ <Route exact path="/chat" component={Chat} />
+          ​<Route exact path="/chat" component={Chat} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/info" component={Info} />
           <Route exact path="/users" component={Users} />

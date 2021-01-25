@@ -7,6 +7,9 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
+
+
+    //wylogowanie użytkownika po odświeżeniu striny
     // firebase.auth().signOut();
 
     firebase.auth().onAuthStateChanged(setCurrentUser);

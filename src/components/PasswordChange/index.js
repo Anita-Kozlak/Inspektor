@@ -5,9 +5,8 @@ import { useState } from "react";
 import firebase from "../Firebase/firebase";
 import {Link} from "react-router-dom";
 
-const PasswordChange = (props) => {
+const PasswordChange = () => {
 
-    // const [msg, setMsg] = useState('')
     const [email, setEmail] = useState('');
 
     const onChange = async (e) => {
@@ -25,7 +24,6 @@ const PasswordChange = (props) => {
           console.log("błąd");
         });
 
-        // setMsg("Sprawdz swoją skrzynkę mailową");
 
     };
 
@@ -55,7 +53,6 @@ const PasswordChange = (props) => {
         <button className="btn" onClick={onChange}>
           wyślij
         </button>
-        {/* <span>{msg}</span> */}
       </form>
     </div>
   );

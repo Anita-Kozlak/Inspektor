@@ -12,23 +12,3 @@ $desktop-width: 1025px;
     @content;
   }
 }
-@mixin close {
-
-  .close:before, .close:after {
-    position: absolute;
-    top: -80px;
-    right: 20px;
-    content: '';
-    height: 33px;
-    width: 4px;
-    background-color:white;
-    border: 1px solid black;
-    
-  }
-  .close:before {
-    transform: rotate(45deg);
-  }
-  .close:after {
-    transform: rotate(-45deg);
-  }
-}
