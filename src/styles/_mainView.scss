@@ -16,14 +16,14 @@
     text-decoration: none;
     position: absolute;
     font-size: 13px;
-    padding-left: 20px;
+    padding-left: 15px;
     border-right: none;
     margin-bottom: 100px;
     text-transform: uppercase;
 
     @include tablet {
       font-size: 17px;
-      padding-left: 20px;
+      padding-left: 15px;
     }
     &:hover {
       color: $hover;
@@ -62,7 +62,7 @@
     width: 100%;
     color: white;
     height: 70px;
-    left: 260px;
+    left: 245px;
 
     @include tablet {
       width: 350px;
