@@ -4,7 +4,7 @@ import React from 'react';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../Firebase/firebase";
-// import { sameAs } from "../../Helpers/validators";
+import { sameAs } from "../../Helpers/validators";
 import { useForm } from "react-hook-form";
 
 const db = firebase.firestore();
@@ -18,9 +18,8 @@ const SignUpPage = (props) => {
   const [name, setName] = useState("");
   const [error, setError] = useState("")
 
-  // const { handleSubmit, register, errors, getValues } = useForm();
+  const { handleSubmit, register, errors, getValues } = useForm();
 
-  const { handleSubmit, register, errors } = useForm();
 
  const onSubmit = (values) => {
    return values;
@@ -128,7 +127,7 @@ const SignUpPage = (props) => {
             </div>
           )}
           <span>{error}</span>
-          {/* <input
+          <input
             ref={register({
               required: true,
               minLength: 6,
@@ -151,7 +150,7 @@ const SignUpPage = (props) => {
                 <span>Hasło musi być takie samo!</span>
               )}
             </div>
-          )} */}
+          )}
         </div>
         <button className="btn" onClick={onRegister} type="submit">
           Zarejestruj się

@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AdminMenu from "../AdminMenu"
+import AdminMenu from "../AdminMenu";
 import * as firebase from "firebase";
 import DeleteIcon from "@material-ui/icons/Delete";
 const db = firebase.firestore();
 
-const Users = () =>  {
-
-
-  const [users, setUsers] = useState([
-    {
-      name: [],
-      email: [],
-    },
-   ]);
+const Users = () => {
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     db.collection("profile")
@@ -20,13 +13,11 @@ const Users = () =>  {
       .then((snapshot) => {
         snapshot.forEach((doc) => {
           let element = doc.data();
-          console.log(element)
-          
-          setUsers(prevState => {
-            return [...prevState,
-            {name: element.name, email: element.email },
-          ]});
-          
+          console.log(element);
+
+          setUsers((prevState) => {
+            return [...prevState, { name: element.name, email: element.email }];
+          });
         });
       });
   }, []);
@@ -40,7 +31,7 @@ const Users = () =>  {
             <li key={index}>
               <span>
                 <strong>{index + 1}.</strong> {user.name} - {user.email}
-                <DeleteIcon style={{marginLeft:"10px"}}/>
+                <DeleteIcon style={{ marginLeft: "10px" }} />
               </span>
             </li>
           ))}
@@ -48,7 +39,6 @@ const Users = () =>  {
       </div>
     </div>
   );
-}
- 
-export default Users
+};
 
+export default Users;

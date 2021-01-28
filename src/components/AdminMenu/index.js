@@ -45,7 +45,7 @@ const Ul = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   li {
-    padding: 18px 10px;
+    padding: 10px;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;

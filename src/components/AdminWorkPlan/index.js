@@ -158,20 +158,26 @@ const AdminWorkPlan = () => {
             recurrence: [
               // 'RRULE:FREQ=DAILY;COUNT=2'
             ],
-            attendees: [
-              { email: emails[0] },
-              { email: emails[1] },
-              // { email: emails[2] },
-              // { email: emails[3] },
-              // { email: emails[4] },
-              // { email: emails[5] },
-              // { email: emails[6] },
-              // { email: emails[7] },
-              // { email: emails[8] },
-              // { email: emails[9] },
-              // { email: emails[10] },
-              // { email: emails[11] },
-            ],
+            attendees : 
+              emails.map(element => 
+                [{email: element}
+                ]
+              ),
+            
+            // attendees: [
+            //   { email: emails[0] },
+            //   { email: emails[1] },
+            //   // { email: emails[2] },
+            //   // { email: emails[3] },
+            //   // { email: emails[4] },
+            //   // { email: emails[5] },
+            //   // { email: emails[6] },
+            //   // { email: emails[7] },
+            //   // { email: emails[8] },
+            //   // { email: emails[9] },
+            //   // { email: emails[10] },
+            //   // { email: emails[11] },
+            // ],
             reminders: {
               useDefault: false,
               overrides: [

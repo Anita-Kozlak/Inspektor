@@ -13,15 +13,13 @@ import Info from "../Info";
 import { AuthProvider } from "../auth";
 import PrivateRoute from "../PrivateRoute";
 import firebase from "firebase";
-import Navigation from "../Navigation"
+import Navigation from "../Navigation";
 import Admin from "../Admin";
-import Users from "../Users"
+import Users from "../Users";
 import AdminInfo from "../AdminInfo";
 
 const App = () => {
-  
   useEffect(() => {
-
     //wysyłanie powiadomień cloud messaging
     const msg = firebase.messaging();
     msg
