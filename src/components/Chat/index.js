@@ -12,7 +12,7 @@ const db = firebase.firestore();
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-function Chat(props) {
+function Chat() {
 
 const [name, setName] = useState("");
 

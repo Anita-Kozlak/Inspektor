@@ -32,6 +32,7 @@
     label {
         font-size: 13px;
         font-family: 'Roboto', sans-serif;
+        margin-right: 20px;
 
     }
 
@@ -43,10 +44,19 @@
         border-radius: 2px;
         margin-top: 15px;
         margin-bottom: 15px;
-        // width: 130px;
-        @include tablet {
-            width: 200px;
-        }
+        width: 200px;
+
+    
+    }
+    textarea {
+        background-color: transparent;
+        border: 1px solid $grey;
+        resize: none;
+        height: 100px;
+        width: 236px;
+        color: white;
+        margin-bottom: 20px;
+
     }
 }
 .users {

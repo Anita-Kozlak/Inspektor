@@ -21,7 +21,7 @@
     justify-content: left;
     align-items: center;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 50px;
     background-color: black;
     color: white;
@@ -39,7 +39,7 @@
   }
 
 .workPlan,
-.reviews,
+.info,
 .regulations,
 .repertoire,
 .messenger,
@@ -63,7 +63,7 @@
   .cast,
   .tickets,
   .reg,
-  .info,
+  .reviews,
   .rules {
     background-color: black;
     width: 100%;
@@ -106,7 +106,7 @@
   .reg {
       top: 465px;
     }
-    .reviews {
+    .info {
       background-color: transparent;
       top: 400px;
       border-top: none;
@@ -123,7 +123,7 @@
       top: 500px;
       border-top: none;
   }
-  .info {
+  .reviews {
     top: 566px;
 
   }

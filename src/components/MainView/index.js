@@ -31,10 +31,9 @@ const MainViewPage = () => {
         <Link to="/admin">
           <h1 className="admin view">ADMIN</h1>
         </Link>
-        <Link to="reviews">
-          <h1 className="reviews view">RECENZJE</h1>
+        <Link to="info">
+          <h1 className="info view">Informacje</h1>
         </Link>
-        <div className="info view"></div>
         <Link to="/chat">
           <h1 className="messenger view">CHAT</h1>
         </Link>

@@ -1,11 +1,15 @@
-// import {Link} from "react-router-dom";
 import React from "react";
+import MainViewLink from "../Link/MainViewLink";
+import SignOutButton from "../SignOut";
 
 const Info = () => {
     return (
       <>
-       
-        <p style={{ color: "white" }}>Nie ma teraz ważnych informacji</p>
+        <div className="buttons">
+          <MainViewLink />
+          <SignOutButton />
+        </div>
+        <p style={{ color: "white", textAlign: "center" }}>Informacje dodane przez Admina</p>
       </>
     );
 }

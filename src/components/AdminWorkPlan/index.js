@@ -73,7 +73,7 @@ const AdminWorkPlan = () => {
         </div>
         <div>
           <label>Opis</label>
-          <input type="text" value={description} onChange={changeDescription} />
+          <textarea type="text" value={description} onChange={changeDescription} />
         </div>
         <Calendar
           title={title}
@@ -93,6 +93,7 @@ const AdminWorkPlan = () => {
         src="https://calendar.google.com/calendar/embed?src=iqopqmhjcn4ouegk95atk23ab0%40group.calendar.google.com&ctz=Europe%2FWarsaw"
         style={{ border: 0, width: "90vw", height: "80vh" }}
       ></iframe> */}
+      <a href="">Styczeń</a>
     </div>
   );
 };
