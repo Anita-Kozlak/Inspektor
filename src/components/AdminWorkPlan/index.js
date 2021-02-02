@@ -86,14 +86,13 @@ const AdminWorkPlan = () => {
       <iframe
         title="This is a unique title"
         src="https://calendar.google.com/calendar/embed?src=anita.kozlak%40gmail.com&ctz=Europe%2FWarsaw"
-        style={{ border: 0, width: "100vw", height: "80vh" }}
+        style={{ border: 0, width: "100vw" }}
       ></iframe>
       {/* <iframe
         title="This is a unique title"
         src="https://calendar.google.com/calendar/embed?src=iqopqmhjcn4ouegk95atk23ab0%40group.calendar.google.com&ctz=Europe%2FWarsaw"
         style={{ border: 0, width: "90vw", height: "80vh" }}
       ></iframe> */}
-      <a href="">Styczeń</a>
     </div>
   );
 };
@@ -157,7 +156,7 @@ const AdminWorkPlan = () => {
               timeZone: "Europe/Warsaw",
             },
             recurrence: [
-              // 'RRULE:FREQ=DAILY;COUNT=2'
+              'RRULE:FREQ=DAILY;COUNT=2'
             ],
             attendees : 
               emails.map(element => 

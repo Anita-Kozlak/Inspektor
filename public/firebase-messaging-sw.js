@@ -15,3 +15,12 @@ firebase.initializeApp({
   })
 
 const initMessaging = firebase.messaging()
+
+initMessaging.setBackgroundMessageHandler(function (payload) {
+  const title = "Hello"
+    const options = {
+      body: "test",
+    };
+    return self.registration.showNotifications(title,options);
+
+})

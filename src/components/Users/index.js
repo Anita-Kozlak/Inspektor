@@ -3,10 +3,23 @@ import AdminMenu from "../AdminMenu";
 import * as firebase from "firebase";
 import DeleteIcon from "@material-ui/icons/Delete";
 const db = firebase.firestore();
+const firestore = firebase.firestore();
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState("")
+  const [team, setTeam] = useState("")
+   //db
 
+      async function addUser() {
+    await firestore.collection(team).add({
+      email: user,
+      team: team,
+  
+    });
+  }
+
+ 
   useEffect(() => {
     db.collection("profile")
       .get()
@@ -25,6 +38,23 @@ const Users = () => {
     <div className="admin">
       {" "}
       <AdminMenu />
+      <input
+        value={user}
+        onChange={(e) => setUser(e.target.value)}
+        placeholder="email"
+      ></input>
+      <button onClick={addUser}>Dodaj użytkowika</button>
+      <select onChange={(e) => setTeam(e.target.value)}>
+        <option value="orkiestra symfoniczna">Orkiestra Symfoniczna</option>
+        <option
+          value="orkiestra Leopoldinum"
+        >
+          Orkiestra Leopoldinum
+        </option>
+        <option value="chór">
+          Chór
+        </option>
+      </select>
       <div className="users">
         <ul>
           {users.map((user, index) => (

@@ -22,17 +22,26 @@ const MainViewPage = () => {
           target="_blank"
           className="repertoire view"
         >
-          REPERTUAR SEZONU
+          <span>
+            {" "}
+            REPERTUAR SEZONU{" "}
+          </span>
         </a>
         <Link to="/contact">
-          <h1 className="contact view">DANE KONTAKTOWE</h1>
+          <h1 className="contact view">
+            {" "}
+            <span>
+              {" "}
+              DANE KONTAKTOWE{" "}
+            </span>
+          </h1>
         </Link>
         <span className="reg view"></span>
         <Link to="/admin">
           <h1 className="admin view">ADMIN</h1>
         </Link>
         <Link to="info">
-          <h1 className="info view">Informacje</h1>
+          <h1 className="info view">Ogłoszenia</h1>
         </Link>
         <Link to="/chat">
           <h1 className="messenger view">CHAT</h1>

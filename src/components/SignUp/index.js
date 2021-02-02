@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import firebase from "../Firebase/firebase";
 import { sameAs } from "../../Helpers/validators";
 import { useForm } from "react-hook-form";
-
+import Image from "../../assets/images/nfm.jpg"
 const db = firebase.firestore();
 
 
@@ -66,10 +66,7 @@ const SignUpPage = (props) => {
     <div className="formContainer">
       <div className="container">
         <Link to="/">
-          <img
-            src="https://www.wroclaw.pl/go/download/img-10cc299f0a18003d189e670bcd9cb8a4/nfm-jpg.jpg"
-            alt=""
-          />
+          <img src={Image} alt="" />
           <h1 className="heading">Inspektor</h1>
         </Link>
       </div>
@@ -126,7 +123,6 @@ const SignUpPage = (props) => {
               )}
             </div>
           )}
-          <span>{error}</span>
           <input
             ref={register({
               required: true,
@@ -152,6 +148,7 @@ const SignUpPage = (props) => {
             </div>
           )}
         </div>
+        <span>{error}</span>
         <button className="btn" onClick={onRegister} type="submit">
           Zarejestruj się
         </button>

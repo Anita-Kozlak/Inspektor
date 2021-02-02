@@ -1,16 +1,23 @@
-import React from "react";
+import React  from "react";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
+import Notices from "../Notices"
+
 
 const Info = () => {
+
+ 
+
     return (
-      <>
+      <div>
         <div className="buttons">
           <MainViewLink />
           <SignOutButton />
         </div>
-        <p style={{ color: "white", textAlign: "center" }}>Informacje dodane przez Admina</p>
-      </>
+        <div className="notices">
+          <Notices />
+        </div>
+      </div>
     );
 }
 export default Info;

@@ -88,7 +88,7 @@ const AdminMenu = () => {
         <li>
           {" "}
           <Link to="/admin-info">
-            <button className="nav">Informacje</button>
+            <button className="nav">Ogłoszenia</button>
           </Link>
         </li>
         <li>

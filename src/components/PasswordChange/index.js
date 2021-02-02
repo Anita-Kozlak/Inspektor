@@ -1,9 +1,10 @@
 
-  
 import React from "react";
 import { useState } from "react";
 import firebase from "../Firebase/firebase";
 import {Link} from "react-router-dom";
+import Image from "../../assets/images/nfm.jpg";
+
 
 const PasswordChange = () => {
 
@@ -32,7 +33,7 @@ const PasswordChange = () => {
       <div className="container">
         <Link to="/">
           <img
-            src="https://www.wroclaw.pl/go/download/img-10cc299f0a18003d189e670bcd9cb8a4/nfm-jpg.jpg"
+            src={Image}
             alt=""
           />
           <h1 className="heading">Inspektor</h1>
@@ -40,9 +41,6 @@ const PasswordChange = () => {
       </div>
 
       <form onSubmit={e => e.preventDefault()}>
-        <h1>
-          Zmień hasło <br></br>
-        </h1>
         <h6>(wpisz swój email, a otrzymasz maila resetującego hasło)</h6>
         <input
           name="text"

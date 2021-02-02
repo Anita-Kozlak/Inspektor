@@ -4,6 +4,8 @@ import firebase from "../Firebase/firebase";
 import { useForm } from "react-hook-form";
 import SignUpLink from "../Link/SignUpLink";
 import PasswordForgetLink from "../Link/PaswordForgetLink";
+import Image from "../../assets/images/nfm.jpg";
+
 
 const SignInPage = () => {
     const [email, setEmail] = useState("");
@@ -27,7 +29,7 @@ const SignInPage = () => {
     <div className="formContainer">
       <div className="container">
         <img
-          src="https://www.wroclaw.pl/go/download/img-10cc299f0a18003d189e670bcd9cb8a4/nfm-jpg.jpg"
+          src={Image}
           alt=""
         />
         <h1 className="heading">Inspektor</h1>

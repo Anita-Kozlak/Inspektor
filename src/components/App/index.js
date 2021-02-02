@@ -30,7 +30,11 @@ const App = () => {
       .then((data) => {
         console.log("token", data);
       });
+      msg.onMessage(function (payload) {
+        console.log('onMessage', payload)
+      })
   }, []);
+  
 
   return (
     <AuthProvider>
