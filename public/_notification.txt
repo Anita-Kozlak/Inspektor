@@ -1,5 +1,5 @@
 {
-    "to": "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU"
+    "to": "c6MxVQJMBpQZlVIv0AAec8:APA91bHYUh7LflT6zJfluaRJDE9Pc_Akr6zFlZVna1zDNvnL5ZFD4UHb767Nz2Ou4RTcK_m8UvlHi6yE5slcRiOuXMQz0kaEk2OIc6iDTzpkRCi1KmTzCTFNUnZffi6Zz5VD7HqAZiUa"
     "notification": {
 
     "title": "Hello",
@@ -8,4 +8,4 @@
     }
 }
 
-curl --header "Authorization: key=BDA1z13XB6o-AiJBCzPnOO_1sFGjKNJCiVNvlw4VGe83w2l7LVWtZEra96HmciLLOyc0tlHJfpwr7pzwNXC9uTk
+curl --header "Authorization: key=AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU

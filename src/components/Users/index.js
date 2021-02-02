@@ -3,21 +3,21 @@ import AdminMenu from "../AdminMenu";
 import * as firebase from "firebase";
 import DeleteIcon from "@material-ui/icons/Delete";
 const db = firebase.firestore();
-const firestore = firebase.firestore();
+// const firestore = firebase.firestore();
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState("")
-  const [team, setTeam] = useState("")
-   //db
+  // const [user, setUser] = useState("")
+  // const [team, setTeam] = useState("")
+  //  //db
 
-      async function addUser() {
-    await firestore.collection(team).add({
-      email: user,
-      team: team,
+  //     async function addUser() {
+  //   await firestore.collection(team).add({
+  //     email: user,
+  //     team: team,
   
-    });
-  }
+  //   });
+  // }
 
  
   useEffect(() => {
@@ -38,29 +38,33 @@ const Users = () => {
     <div className="admin">
       {" "}
       <AdminMenu />
-      <input
+      {/* <input
         value={user}
         onChange={(e) => setUser(e.target.value)}
         placeholder="email"
       ></input>
-      <button onClick={addUser}>Dodaj użytkowika</button>
-      <select onChange={(e) => setTeam(e.target.value)}>
-        <option value="orkiestra symfoniczna">Orkiestra Symfoniczna</option>
-        <option
-          value="orkiestra Leopoldinum"
-        >
-          Orkiestra Leopoldinum
-        </option>
-        <option value="chór">
-          Chór
-        </option>
-      </select>
+      <button onClick={addUser}>Dodaj użytkowika</button> */}
       <div className="users">
         <ul>
           {users.map((user, index) => (
             <li key={index}>
               <span>
-                <strong>{index + 1}.</strong> {user.name} - {user.email}
+                <strong>
+                  {index + 1}. {user.name} - {user.email}
+                </strong>
+                <select>
+                  <option>
+                    wybierz
+                  </option>
+                  <option value="orkiestra symfoniczna">
+                    Orkiestra Symfoniczna
+                  </option>
+                  <option value="orkiestra Leopoldinum">
+                    Orkiestra Leopoldinum
+                  </option>
+                  <option value="chór">Chór</option>
+                </select>
+                
                 <DeleteIcon style={{ marginLeft: "10px" }} />
               </span>
             </li>

@@ -10,7 +10,6 @@ const Notices = () => {
       .collection("info")
       .get()
       .then((info) => {
-        console.log(info);
         const loadedInfo = info.docs.map((info) => info.data().text);
         console.log(loadedInfo);
         setInfo(loadedInfo);

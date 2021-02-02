@@ -6,6 +6,13 @@
         display: flex;
 
         }
+        iframe {
+            height: 500px;
+            @include tablet {
+                
+                height: 100vh;
+            }
+        }
     }
 }
 .msg {
@@ -72,6 +79,10 @@
     span {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+    }
+    select {
+        margin-left: 15px;
     }
 }
 .adminInfo {
@@ -104,9 +115,7 @@
         }
         
     }
-    input {
-        width: 500px;
-    }
+ 
     li {
         margin-bottom: 20px;
         font-size: 17px;

@@ -4,7 +4,7 @@
   align-items: center;
   background-color: black;
   opacity: 0.9;
-  padding-bottom: 100px;
+  padding-bottom: 290px;
   
   @include tablet {
     margin: 100px auto;
@@ -118,6 +118,7 @@ h6 {
     color: black;
     border: 2px solid black;
     background-color: $bg;
+    font-weight: 600;
     @include tablet {
       font-size: 15px;
       padding: 7px;

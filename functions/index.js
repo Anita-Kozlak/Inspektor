@@ -21,8 +21,6 @@ admin.initializeApp(functions.config().firebase);
      let fcmToken = userDoc.get("fcm");
 
      var message = {
-        to: "allDevices",
-
        notification: {
         title: name,
         body: text,

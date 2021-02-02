@@ -86,7 +86,7 @@ const AdminWorkPlan = () => {
       <iframe
         title="This is a unique title"
         src="https://calendar.google.com/calendar/embed?src=anita.kozlak%40gmail.com&ctz=Europe%2FWarsaw"
-        style={{ border: 0, width: "100vw" }}
+        style={{ border: 0, width: "100vw"}}
       ></iframe>
       {/* <iframe
         title="This is a unique title"

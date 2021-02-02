@@ -20,7 +20,6 @@ const AdminInfo = () => {
   
     setMsg("");
 
-    //dodanie do kolekcji firestore - imię i nazwisko, wiadomość
   };
    
   return (
