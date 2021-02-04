@@ -17,6 +17,7 @@ import Navigation from "../Navigation";
 import Admin from "../Admin";
 import Users from "../Users";
 import AdminInfo from "../AdminInfo";
+import Register from "../../views/Register";
 
 const App = () => {
   useEffect(() => {
@@ -30,11 +31,10 @@ const App = () => {
       .then((data) => {
         console.log("token", data);
       });
-      msg.onMessage(function (payload) {
-        console.log('onMessage', payload)
-      })
+    msg.onMessage(function (payload) {
+      console.log("onMessage", payload);
+    });
   }, []);
-  
 
   return (
     <AuthProvider>
@@ -53,6 +53,7 @@ const App = () => {
           <Route exact path="/info" component={Info} />
           <Route exact path="/users" component={Users} />
           <Route exact path="/admin-info" component={AdminInfo} />
+          <Route path="/register" component={Register} />
           <PrivateRoute exact path="/mainview" component={MainViewPage} />
         </Switch>
       </Router>

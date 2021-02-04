@@ -13,6 +13,7 @@
     "firebase-admin": "^9.4.2",
     "firebase-functions": "^3.13.0",
     "firebase-tools": "^9.1.0",
+    "formik": "^2.2.6",
     "moment": "^2.29.1",
     "npm-reinstall": "^3.1.0",
     "npm-uninstall": "^1.0.0",
@@ -27,7 +28,8 @@
     "recompose": "^0.30.0",
     "request": "^2.79.0",
     "styled-components": "^5.2.1",
-    "xlsx": "^0.16.9"
+    "xlsx": "^0.16.9",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-scripts start",
