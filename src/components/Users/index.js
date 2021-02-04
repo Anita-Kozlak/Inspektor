@@ -26,7 +26,6 @@ const Users = () => {
       .then((snapshot) => {
         snapshot.forEach((doc) => {
           let element = doc.data();
-          console.log(element);
 
           setUsers((prevState) => {
             return [...prevState, { name: element.name, email: element.email }];
@@ -53,9 +52,7 @@ const Users = () => {
                   {index + 1}. {user.name} - {user.email}
                 </strong>
                 <select>
-                  <option>
-                    wybierz
-                  </option>
+                  <option>wybierz</option>
                   <option value="orkiestra symfoniczna">
                     Orkiestra Symfoniczna
                   </option>
@@ -64,7 +61,7 @@ const Users = () => {
                   </option>
                   <option value="chór">Chór</option>
                 </select>
-                
+                <button>Dodaj</button>
                 <DeleteIcon style={{ marginLeft: "10px" }} />
               </span>
             </li>

@@ -20,7 +20,29 @@
     margin-bottom: 20px;
 
 }
+.concerts {
+    input {
+        width: 174px;
 
+    }
+    textarea {
+        background-color: transparent;
+        border: 1px solid $grey;
+        resize: none;
+        height: 100px;
+        width: 210px;
+        color: white;
+        margin-bottom: 20px;
+
+    }
+      label {
+        font-size: 13px;
+        font-family: 'Roboto', sans-serif;
+        margin-right: 20px;
+        width: 65px;
+
+    }
+}
 .concerts,
 .users,
 .adminInfo {
@@ -33,15 +55,9 @@
 
     div {
         display: flex;
-        // align-items: center;
-        justify-content: space-between;
+      
     }
-    label {
-        font-size: 13px;
-        font-family: 'Roboto', sans-serif;
-        margin-right: 20px;
-
-    }
+  
 
     input {
         padding: 20px;
@@ -51,20 +67,10 @@
         border-radius: 2px;
         margin-top: 15px;
         margin-bottom: 15px;
-        width: 200px;
 
     
     }
-    textarea {
-        background-color: transparent;
-        border: 1px solid $grey;
-        resize: none;
-        height: 100px;
-        width: 236px;
-        color: white;
-        margin-bottom: 20px;
-
-    }
+    
 }
 .users {
     margin: auto;
@@ -92,7 +98,15 @@
     flex-direction: column;
     font-size: 20px;
     padding-bottom: 30px;
-
+    &__notices {
+        display: flex;
+        align-items: center;
+        p, a {
+            margin-right: 10px;
+            font-size: 15px;
+        }
+    
+        }
     button {
         font-size: 18px;
         font-weight: 700;

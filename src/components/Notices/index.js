@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as firebase from "firebase";
+import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
+
 const firestore = firebase.firestore();
+
 
 const Notices = () => {
   const [info, setInfo] = useState([]);
@@ -9,22 +12,33 @@ const Notices = () => {
     firestore
       .collection("info")
       .get()
-      .then((info) => {
-        const loadedInfo = info.docs.map((info) => info.data().text);
-        console.log(loadedInfo);
-        setInfo(loadedInfo);
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          let element = doc.data();
+
+          setInfo((prevState) => {
+            return [...prevState, { text: element.text, file: element.file }];
+          });
+        });
       });
   }, []);
 
   return (
     <div>
-      
       <ul>
-        {info.map((element, index) => {
-          return <li key={index}>{element}</li>;
+        {info.map((file) => {
+          return (
+            <li key={file.text}>
+              <div className="adminInfo__notices">
+                <p>{file.text} </p>
+                <a href={file.file}>
+                  <CloudDownloadIcon style={{ color: "blue" }} />
+                </a>
+              </div>
+            </li>
+          );
         })}
       </ul>
-    
     </div>
   );
 };

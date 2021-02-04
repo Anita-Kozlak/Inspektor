@@ -20,7 +20,7 @@ import AdminInfo from "../AdminInfo";
 
 const App = () => {
   useEffect(() => {
-    //wysyłanie powiadomień cloud messaging
+    //wysyłanie powiadomień cloud messaging //nie działa!
     const msg = firebase.messaging();
     msg
       .requestPermission()

@@ -48,7 +48,7 @@ const [name, setName] = useState("");
     }
   }
   useLayoutEffect(() => {
-    dummy.current.scrollIntoView({
+    dummy.current.scrollIntoViewIfNeeded({
         behavior: "auto",     
       
     });

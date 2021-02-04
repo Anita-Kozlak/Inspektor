@@ -21,11 +21,12 @@ admin.initializeApp(functions.config().firebase);
      let fcmToken = userDoc.get("fcm");
 
      var message = {
-       notification: {
-        title: name,
-        body: text,
-       },
        token: fcmToken,
+
+       notification: {
+         title: name,
+         body: text,
+       },
      };
 
      let response = await admin.messaging().send(message);

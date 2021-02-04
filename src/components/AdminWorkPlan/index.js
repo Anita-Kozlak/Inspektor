@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 
 const db = firebase.firestore();
 
+//jak wyświetlić dla orkiestry?
 
 const AdminWorkPlan = () => {
 
@@ -110,7 +111,6 @@ const AdminWorkPlan = () => {
         .then((snapshot) => {
           snapshot.forEach((doc) => {
             let element = doc.data();
-            console.log(element.email);
             setEmails((prevState) => [...prevState, element.email]);
           });
         });
