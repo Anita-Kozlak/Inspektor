@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../SignOut";
+import { routes } from "../constans/routes";
 
 const MainViewPage = () => {
   return (
@@ -10,10 +11,10 @@ const MainViewPage = () => {
         <SignOutButton />
       </div>
       <div className="mainView">
-        <Link to="/workplan">
+        <Link to={routes.workplan}>
           <h1 className="workPlan view">PLAN PRACY</h1>{" "}
         </Link>
-        <Link to="/regulations">
+        <Link to={routes.regulations}>
           <h1 className="regulations view">REGULAMINY</h1>
         </Link>
         <div className="cast view"></div>
@@ -37,13 +38,13 @@ const MainViewPage = () => {
           </h1>
         </Link>
         <span className="reg view"></span>
-        <Link to="/admin">
+        <Link to={routes.admin}>
           <h1 className="admin view">ADMIN</h1>
         </Link>
-        <Link to="info">
+        <Link to={routes.info}>
           <h1 className="info view">Ogłoszenia</h1>
         </Link>
-        <Link to="/chat">
+        <Link to={routes.chat}>
           <h1 className="messenger view">CHAT</h1>
         </Link>
         <a
@@ -54,14 +55,13 @@ const MainViewPage = () => {
         >
           Dostępność garderób
         </a>
-        <a
-          href="https://docs.google.com/spreadsheets/d/1795vVAA3KHB0Zin4t_2UKf0EjQ7x5ZjIx6nA7m7SFEA/edit?ts=561682bc&pli=1#gid=0"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          // href="https://docs.google.com/spreadsheets/d/1795vVAA3KHB0Zin4t_2UKf0EjQ7x5ZjIx6nA7m7SFEA/edit?ts=561682bc&pli=1#gid=0"
+          // target="_blank"
+          // rel="noopener noreferrer"
           className="availabilityOfRooms view"
         >
-          Dostępność sal
-        </a>
+        </div>
         <div className="tickets view"></div>
       </div>
     </div>

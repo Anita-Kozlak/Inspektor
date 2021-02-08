@@ -1,32 +1,16 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
-// import './index.scss';
-// import * as serviceWorker from './serviceWorker';
-
-// import App from './components/App';
-// import Firebase, { FirebaseContext } from './components/Firebase';
-
-// ReactDOM.render(
-//     <FirebaseContext.Provider value={new Firebase()}>
-//         <App />
-//     </FirebaseContext.Provider>,
-//     document.getElementById('root'),
-// );
-
-// serviceWorker.unregister();
-
-  
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "./components/App";
+import App from "./App";
 // import * as reportWebVitals from "./reportWebVitals";
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root"),
 );

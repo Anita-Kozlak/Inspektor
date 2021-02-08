@@ -44,7 +44,7 @@
 .messenger,
 .contact,
 .availabilityOfWardrobes,
-.availabilityOfRooms {
+.admin {
   color: black;
   background-color: white;
   left: 0;
@@ -58,7 +58,7 @@
     width: 730px;
   }
 }
-  .admin,
+  .availabilityOfRooms,
   .cast,
   .tickets,
   .reg,
@@ -82,7 +82,7 @@
     
   
   }
-  .admin{
+  .availabilityOfRooms {
     top: 64px;
     }
    .messenger {
@@ -125,15 +125,15 @@
     top: 566px;
 
   }
-  .availabilityOfRooms {
+  .availabilityOfWardrobes {
 
     background-color: transparent;
     top: 600px;
     border-top: none;
 
   }
-  .availabilityOfWardrobes {
-    background-color: transparent;
+.admin {
+     background-color: transparent;
     top: 700px;
     border-top: none;
 
