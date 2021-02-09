@@ -4,7 +4,7 @@ import React from "react";
 const MainViewLink = () => {
   return (
     <p>
-      <Link to="/mainview">
+      <Link to="/">
         <button className="nav" type="button">
           Strona Główna
         </button>

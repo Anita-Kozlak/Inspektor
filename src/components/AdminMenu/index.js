@@ -75,7 +75,7 @@ const AdminMenu = () => {
       </StyledBurger>
       <Ul open={open}>
         <li>
-          <Link to="/admin">
+          <Link to="/admin-work-plan">
             <button className="nav">Plan zajęć</button>
           </Link>
         </li>

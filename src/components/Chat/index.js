@@ -1,34 +1,35 @@
 /* eslint no-useless-escape: 0 */
-import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import React, { useRef, useState, useLayoutEffect, useContext } from "react";
 import ScrollableFeed from "react-scrollable-feed";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import "firebase/firestore";
 import "firebase/auth";
-import "firebase/database"
 import * as firebase from "firebase";
-const db = firebase.firestore();
-const auth = firebase.auth();
+import AppContext from "../../context";
+
 const firestore = firebase.firestore();
 
 function Chat() {
+ 
 
-const [name, setName] = useState("");
+const context = useContext(AppContext);
 
-  useEffect(() => {
-    db.collection("profile")
-      .get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          let element = doc.data();
-          if (auth.currentUser.email === element.email) {
-            const name = element.name;
-            setName(name);
-          }
-        })
-      });
-  }, []);
+  //  useEffect(() => {
+  //    db.collection("usersList")
+  //      .get()
+  //      .then((snapshot) => {
+  //        snapshot.forEach((doc) => {
+  //          let element = doc.data();
+  //          console.log(element);
+  //          // if (auth.currentUser.email === element.email) {
+  //          //   const name = element.name;
+  //          //   setName(name);
+  //          // }
+  //        });
+  //      });
+  //  }, []);
 
   const [message, setMessage] = useState("");
   const dummy = useRef();
@@ -58,10 +59,8 @@ const [name, setName] = useState("");
     await firestore.collection("chat").add({
       text: message,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      name: name,
+      name: context.currentUser.nameAndSurname,
       userUid: "AIzaSyAZcfS2u1phsAET9-8F7_L1A_LuSBCnCYU",
-
-      // email: auth.currentUser.email,
     });
 
     setMessage("");
@@ -90,7 +89,7 @@ const [name, setName] = useState("");
                       padding: 10,
                     }}
                   >
-                    {message.name === name ? (
+                    {message.name ? (
                       <div
                         className="chatRight"
                         style={{

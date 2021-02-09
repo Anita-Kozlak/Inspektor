@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../SignOut";
 import { routes } from "../constans/routes";
+import AppContext from "../../context";
 
 const MainViewPage = () => {
+  const context = useContext(AppContext);
+
   return (
     <div className="mainViewPage">
       {" "}
-      <div className="btnOut">
+      <div className="buttons">
+        {context.currentUser.admin ? (
+          <Link to={routes.users}>
+            <button className="nav">Użytkownicy</button>
+          </Link>
+        ) : null}
         <SignOutButton />
       </div>
+      {/* <h2 className="welcome">Witaj, {context.currentUser.nameAndSurname}!</h2> */}
       <div className="mainView">
         <Link to={routes.workplan}>
           <h1 className="workPlan view">PLAN PRACY</h1>{" "}
@@ -23,24 +32,20 @@ const MainViewPage = () => {
           target="_blank"
           className="repertoire view"
         >
-          <span>
-            {" "}
-            REPERTUAR SEZONU{" "}
-          </span>
+          <span> REPERTUAR SEZONU </span>
         </a>
         <Link to="/contact">
           <h1 className="contact view">
             {" "}
-            <span>
-              {" "}
-              DANE KONTAKTOWE{" "}
-            </span>
+            <span> DANE KONTAKTOWE </span>
           </h1>
         </Link>
         <span className="reg view"></span>
-        <Link to={routes.admin}>
-          <h1 className="admin view">ADMIN</h1>
-        </Link>
+        {context.currentUser.admin ? (
+          <Link to={routes.admin}>
+            <h1 className="admin view">ADMIN</h1>
+          </Link>
+        ) : null}
         <Link to={routes.info}>
           <h1 className="info view">Ogłoszenia</h1>
         </Link>
@@ -60,8 +65,7 @@ const MainViewPage = () => {
           // target="_blank"
           // rel="noopener noreferrer"
           className="availabilityOfRooms view"
-        >
-        </div>
+        ></div>
         <div className="tickets view"></div>
       </div>
     </div>

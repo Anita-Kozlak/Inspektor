@@ -23,6 +23,6 @@ export const routes = {
   info: "/info",
   contact: "/contact",
   users: "/users",
-  regulations: "regulations",
+  regulations: "/regulations",
 
 };

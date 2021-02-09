@@ -21,6 +21,10 @@ const WorkPlan = () => {
           src="https://calendar.google.com/calendar/embed?src=iqopqmhjcn4ouegk95atk23ab0%40group.calendar.google.com&ctz=Europe%2FWarsaw"
           style={{ border: 0, width: "90vw", height: "80vh" }}
         ></iframe>
+        <div className="message">
+          <h2>Wyślij wiadomość do orkiestry o zmianie w planie pracy</h2>
+          <input></input>
+        </div>
       </div>
     </>
   );

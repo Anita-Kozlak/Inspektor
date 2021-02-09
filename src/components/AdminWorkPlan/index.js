@@ -1,6 +1,7 @@
   
 import React, { useEffect, useState } from "react";
 import * as firebase from "firebase";
+import AdminMenu from "../AdminMenu";
 
 const db = firebase.firestore();
 
@@ -36,65 +37,72 @@ const AdminWorkPlan = () => {
 
 
   return (
-    <div className="admin__calendar">
-      <div className="concerts">
-        <div>
-          <label>Tytuł (Próba, Koncert)</label>
-          <input value={title} onChange={changeTitle}></input>
-        </div>
-        <div>
-          <label>Data - od</label>
-          <input
-            onChange={changeDataStart}
-            type="datetime-local"
-            step="1"
-            id="meeting-time"
-            name="meeting-time"
-            value={start}
-            min="2018-01-01T00:00:00"
-            max="2030-01-01T00:00:00"
+    <>
+      <AdminMenu />
+      <div className="admin__calendar">
+        <div className="concerts">
+          <div>
+            <label>Tytuł (Próba, Koncert)</label>
+            <input value={title} onChange={changeTitle}></input>
+          </div>
+          <div>
+            <label>Data - od</label>
+            <input
+              onChange={changeDataStart}
+              type="datetime-local"
+              step="1"
+              id="meeting-time"
+              name="meeting-time"
+              value={start}
+              min="2018-01-01T00:00:00"
+              max="2030-01-01T00:00:00"
+            />
+          </div>
+          <div>
+            <label>Data - do</label>
+            <input
+              onChange={changeDataEnd}
+              type="datetime-local"
+              step="1"
+              id="meeting-time"
+              name="meeting-time"
+              value={end}
+              min="2018-01-01T00:00"
+              max="2030-01-01T00:00"
+            />
+          </div>
+          <div>
+            <label>Gdzie</label>
+            <input value={where} onChange={changeWhere} />
+          </div>
+          <div>
+            <label>Opis</label>
+            <textarea
+              type="text"
+              value={description}
+              onChange={changeDescription}
+            />
+          </div>
+          <Calendar
+            title={title}
+            where={where}
+            description={description}
+            start={start}
+            end={end}
           />
         </div>
-        <div>
-          <label>Data - do</label>
-          <input
-            onChange={changeDataEnd}
-            type="datetime-local"
-            step="1"
-            id="meeting-time"
-            name="meeting-time"
-            value={end}
-            min="2018-01-01T00:00"
-            max="2030-01-01T00:00"
-          />
-        </div>
-        <div>
-          <label>Gdzie</label>
-          <input value={where} onChange={changeWhere} />
-        </div>
-        <div>
-          <label>Opis</label>
-          <textarea type="text" value={description} onChange={changeDescription} />
-        </div>
-        <Calendar
-          title={title}
-          where={where}
-          description={description}
-          start={start}
-          end={end}
-        />
-      </div>
-      <iframe
-        title="This is a unique title"
-        src="https://calendar.google.com/calendar/embed?src=anita.kozlak%40gmail.com&ctz=Europe%2FWarsaw"
-        style={{ border: 0, width: "100vw"}}
-      ></iframe>
-      {/* <iframe
+        <iframe
+          title="This is a unique title"
+          src="https://calendar.google.com/calendar/embed?src=anita.kozlak%40gmail.com&ctz=Europe%2FWarsaw"
+          style={{ border: 0, width: "100vw" }}
+        ></iframe>
+        {/* <iframe
         title="This is a unique title"
         src="https://calendar.google.com/calendar/embed?src=iqopqmhjcn4ouegk95atk23ab0%40group.calendar.google.com&ctz=Europe%2FWarsaw"
         style={{ border: 0, width: "90vw", height: "80vh" }}
       ></iframe> */}
-    </div>
+      </div>
+    </>
   );
 };
 
@@ -231,6 +239,7 @@ const AdminWorkPlan = () => {
             });
         });
       });
+     
     };
 
     return (

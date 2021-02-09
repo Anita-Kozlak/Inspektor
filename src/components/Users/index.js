@@ -1,71 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import AdminMenu from "../AdminMenu";
-import * as firebase from "firebase";
 import DeleteIcon from "@material-ui/icons/Delete";
-const db = firebase.firestore();
+import AppContext from "../../context";
+import { acceptUser, setUserTeam } from "../../firebase/firebaseUtils";
+
 // const firestore = firebase.firestore();
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
-  // const [user, setUser] = useState("")
-  // const [team, setTeam] = useState("")
-  //  //db
+  // useEffect(() => {
+  //   usersListCollection.get().then((snapshot) => {
+  //     snapshot.forEach((doc) => {
+  //       let element = doc.data();
 
-  //     async function addUser() {
-  //   await firestore.collection(team).add({
-  //     email: user,
-  //     team: team,
-  
+  //       setUsers((prevState) => {
+  //         return [
+  //           ...prevState,
+  //           { nameAndSurname: element.nameAndSurname, email: element.email },
+  //         ];
+  //       });
+  //     });
   //   });
-  // }
+  // }, []);
 
- 
-  useEffect(() => {
-    db.collection("profile")
-      .get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          let element = doc.data();
+  const context = useContext(AppContext);
 
-          setUsers((prevState) => {
-            return [...prevState, { name: element.name, email: element.email }];
-          });
-        });
-      });
-  }, []);
+  const usersWithoutAdmins = context.users.filter(
+    (user) => user.admin === false,
+  );
+
   return (
     <div className="admin">
-      {" "}
       <AdminMenu />
-      {/* <input
-        value={user}
-        onChange={(e) => setUser(e.target.value)}
-        placeholder="email"
-      ></input>
-      <button onClick={addUser}>Dodaj użytkowika</button> */}
       <div className="users">
         <ul>
-          {users.map((user, index) => (
-            <li key={index}>
-              <span>
-                <strong>
-                  {index + 1}. {user.name} - {user.email}
-                </strong>
-                <select>
-                  <option>wybierz</option>
-                  <option value="orkiestra symfoniczna">
-                    Orkiestra Symfoniczna
-                  </option>
-                  <option value="orkiestra Leopoldinum">
-                    Orkiestra Leopoldinum
-                  </option>
-                  <option value="chór">Chór</option>
-                </select>
-                <button>Dodaj</button>
-                <DeleteIcon style={{ marginLeft: "10px" }} />
-              </span>
-            </li>
-          ))}
+          {usersWithoutAdmins.map(
+            ({ nameAndSurname, email, id, acceptance, team }, index) => (
+              <li key={id}>
+                <span>
+                  <strong>
+                    {index + 1}. {nameAndSurname} - {email}
+                  </strong>
+                  <select
+                    onChange={(e) => setUserTeam(id, e.target.value)}
+                    defaultValue={team}
+                  >
+                    <option>wybierz</option>
+                    <option value="orkiestra symfoniczna">
+                      Orkiestra Symfoniczna
+                    </option>
+                    <option value="orkiestra Leopoldinum">
+                      Orkiestra Leopoldinum
+                    </option>
+                    <option value="chór">Chór</option>
+                  </select>
+                  {acceptance ? (
+                    <p>Zaakceptowany</p>
+                  ) : (
+                    <button onClick={() => acceptUser(id)}>Dodaj</button>
+                  )}
+                  <DeleteIcon style={{ marginLeft: "10px" }} />
+                </span>
+              </li>
+            ),
+          )}
         </ul>
       </div>
     </div>

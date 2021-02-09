@@ -9,8 +9,8 @@ const UnloggedUserTemplate = () => {
   return (
     <Switch>
       <Route exact path={routes.login} component={Login} />
-      <Route exact path={routes.regiser} component={Register} />
-      <Route exact path={routes.passwordForgetPage} component={PasswordForgetPage} />
+      <Route path={routes.regiser} component={Register} />
+      <Route path={routes.passwordForgetPage} component={PasswordForgetPage} />
     </Switch>
   );
 };
