@@ -26,7 +26,9 @@ const MainViewPage = () => {
         <Link to={routes.regulations}>
           <h1 className="regulations view">REGULAMINY</h1>
         </Link>
-        <div className="cast view"></div>
+        <Link to={routes.cast}>
+          <h1 className="cast view">Skład orkiestry</h1>
+        </Link>
         <a
           href="/Repertuar_sezonu.pdf"
           target="_blank"
@@ -41,11 +43,7 @@ const MainViewPage = () => {
           </h1>
         </Link>
         <span className="reg view"></span>
-        {context.currentUser.admin ? (
-          <Link to={routes.admin}>
-            <h1 className="admin view">ADMIN</h1>
-          </Link>
-        ) : null}
+        <div className="admin view"></div>
         <Link to={routes.info}>
           <h1 className="info view">Ogłoszenia</h1>
         </Link>

@@ -24,5 +24,6 @@ export const routes = {
   contact: "/contact",
   users: "/users",
   regulations: "/regulations",
+  cast: "/cast"
 
 };

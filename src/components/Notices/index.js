@@ -1,63 +1,18 @@
-// import React, { useState, useEffect } from "react";
-// import * as firebase from "firebase";
-// import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
-
-// const firestore = firebase.firestore();
-
-
-// const Notices = () => {
-//   const [info, setInfo] = useState([]);
-
-//   useEffect(() => {
-//     firestore
-//       .collection("info")
-//       .get()
-//       .then((snapshot) => {
-//         snapshot.forEach((doc) => {
-//           let element = doc.data();
-//           console.log(element);
-
-//           setInfo((prevState) => {
-//             return [...prevState, { text: element.text, file: element.file }];
-//           });
-//         });
-//       });
-//   }, []);
-
-//   return (
-//     <div>
-//       <ul>
-//         {info.map((file) => {
-//           return (
-//             <li key={file.text}>
-//               <div className="adminInfo__notices">
-//                 <p>{file.text} </p>
-//                 <a href={file.file}>
-//                   <CloudDownloadIcon style={{ color: "blue" }} />
-//                 </a>
-//               </div>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </div>
-//   );
-// };
-// export default Notices;
 import React, { useState, useEffect, useContext } from "react";
 import * as firebase from "firebase";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import SpellInput from "../SpellInput";
 import AppContext from "../../context";
 
+
 const firestore = firebase.firestore();
 const Notices = () => {
  
   const context = useContext(AppContext);
-
   const [msg, setMsg] = useState("");
   const [file, setFile] = useState("")
   const [info, setInfo] = useState([])
+
 
   const handleChange = (e) => {
     setMsg(e.target.value);
@@ -66,6 +21,7 @@ const Notices = () => {
      firestore.collection("info").add({
        text: msg,
        file: file,
+       name: context.currentUser.nameAndSurname,
      });
   
     setMsg("");
@@ -91,24 +47,6 @@ const Notices = () => {
   }, []);
 
 
-  //2 metoda
-    // useEffect(() => {
-    //   firestore.collection("info")
-    //     .get()
-    //     .then((snapshot) => {
-    //       snapshot.forEach((doc) => {
-    //         let element = doc.data();
-    //         console.log(element);
-
-    //         setFiles((prevState) => {
-    //           return [
-    //             ...prevState,
-    //             { text: element.text, file: element.file },
-    //           ];
-    //         });
-    //       });
-    //     });
-    // }, []);
   return (
     <>
       <div className="adminInfo">
@@ -124,12 +62,14 @@ const Notices = () => {
           {info.map((info) => {
             return (
               <li key={info.text}>
-                
+                <h4>Opublikował: {info.name}</h4>
                 <div className="adminInfo__notices">
                   <p>{info.text} </p>
-                  <a href={info.file}>
+                  {info.file !== "" ?  <a href={info.file}>
+                  
                     <CloudDownloadIcon style={{ color: "blue" }} />
-                  </a>
+                  </a> : null }
+                 
 
                   {context.currentUser.admin ? (
                     <SpellInput info={info} />

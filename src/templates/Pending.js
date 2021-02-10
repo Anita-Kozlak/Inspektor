@@ -14,12 +14,11 @@ const Pending = () => {
         <MainTemplate />
       ) : (
         <>
-          <div style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
+          <div style={{display: "flex", alignItems: "center", flexDirection: "column", textAlign: "center"}}>
             <h1
               style={{
-                fontSize: 30,
+                fontSize: 20,
                 color: "white",
-                fontFamily: "sans-serif",
                 marginTop: 100,
                 marginBottom: 50
               }}

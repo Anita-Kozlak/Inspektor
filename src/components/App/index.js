@@ -7,6 +7,7 @@ import Chat from "../Chat";
 import Info from "../Info";
 import firebase from "firebase";
 import Admin from "../Admin";
+import Cast from "../Cast";
 import Users from "../Users";
 import AdminInfo from "../AdminInfo";
 import AdminWorkPlan from "../AdminWorkPlan";
@@ -78,6 +79,7 @@ const App = () => {
       <Route exact path="/admin" component={Admin} />
       <Route path={routes.info} component={Info} />
       <Route path={routes.users} component={Users} />
+      <Route path={routes.cast} component={Cast} />
       <Route path="/admin-info" component={AdminInfo} />
       <Route path="/admin-work-plan" component={AdminWorkPlan} />
       {/* // </Switch> */}

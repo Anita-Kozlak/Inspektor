@@ -1,6 +1,6 @@
 import React from "react";
-import * as firebase from "firebase";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { firestore } from "../firebase/firebaseConfig";
 
 
  const SpellInput = ({ info }) => {
@@ -15,8 +15,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 //   };
 
   const onDelete = () => {
-    const db = firebase.firestore();
-    db.collection("info").doc(info.id).delete();
+    firestore.collection("info").doc(info.id).delete();
   };
 
   return (

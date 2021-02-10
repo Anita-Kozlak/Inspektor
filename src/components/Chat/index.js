@@ -1,5 +1,5 @@
 /* eslint no-useless-escape: 0 */
-import React, { useRef, useState, useLayoutEffect, useContext } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect, useContext } from "react";
 import ScrollableFeed from "react-scrollable-feed";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
@@ -8,6 +8,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import * as firebase from "firebase";
 import AppContext from "../../context";
+import { auth } from "../../firebase/firebaseConfig";
 
 const firestore = firebase.firestore();
 
@@ -16,20 +17,24 @@ function Chat() {
 
 const context = useContext(AppContext);
 
-  //  useEffect(() => {
-  //    db.collection("usersList")
-  //      .get()
-  //      .then((snapshot) => {
-  //        snapshot.forEach((doc) => {
-  //          let element = doc.data();
-  //          console.log(element);
-  //          // if (auth.currentUser.email === element.email) {
-  //          //   const name = element.name;
-  //          //   setName(name);
-  //          // }
-  //        });
-  //      });
-  //  }, []);
+
+const [name, setName] = useState("")
+   useEffect(() => {
+     firestore.collection("usersList")
+       .get()
+       .then((snapshot) => {
+         snapshot.forEach((doc) => {
+           let element = doc.data();
+           console.log(element);
+           if (auth.currentUser.email === element.email) {
+             const name = element.nameAndSurname;
+             console.log(name)
+             setName(name);
+           }
+         });
+       });
+   }, []);
+
 
   const [message, setMessage] = useState("");
   const dummy = useRef();
@@ -89,7 +94,7 @@ const context = useContext(AppContext);
                       padding: 10,
                     }}
                   >
-                    {message.name ? (
+                    {message.name === name ? (
                       <div
                         className="chatRight"
                         style={{
@@ -99,10 +104,7 @@ const context = useContext(AppContext);
                         }}
                       >
                         <div>
-                          <span>
-                            {" "}
-                            {message.name},{" "}
-                          </span>
+                          <span> {message.name}, </span>
 
                           <span>
                             {message.createdAt &&
@@ -111,7 +113,9 @@ const context = useContext(AppContext);
                               ).toLocaleString()}
                           </span>
                         </div>
-                        <p style={{ background: "#D4D0CF" }}>{message.text}</p>
+                        <p style={{ background: 'lightblue' }}>
+                          {message.text}
+                        </p>
                       </div>
                     ) : (
                       <div
@@ -123,10 +127,7 @@ const context = useContext(AppContext);
                         }}
                       >
                         <div>
-                          <span>
-                            {" "}
-\                            {message.name},{" "}
-                          </span>
+                          <span>{message.name}, </span>
 
                           <span>
                             {message.createdAt &&
@@ -135,7 +136,7 @@ const context = useContext(AppContext);
                               ).toLocaleString()}
                           </span>
                         </div>
-                        <p style={{ background: "lightblue", float: "left" }}>
+                        <p style={{ background: "#D4D0CF", float: "left" }}>
                           {message.text}
                         </p>
                       </div>

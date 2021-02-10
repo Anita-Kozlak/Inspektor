@@ -1,16 +1,14 @@
-import React  from "react";
-// import AdminWorkPlan from "../AdminWorkPlan"
-import AdminMenu from "../AdminMenu";
+import React from "react";
 
 
 const Admin = () => {
-  return (
-      <div className="admin">
-        <AdminMenu />
-        {/* <AdminWorkPlan /> */}
-      </div>
-    );
 
+  return (
+    <div className="admin">
+     {/* <AdminMenu /> */}
+      {/* <AdminWorkPlan /> */}
+    </div>
+  )
 }
 export default Admin;
 

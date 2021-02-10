@@ -1,97 +1,68 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import MainViewLink from "../Link/MainViewLink";
+import SignOutButton from "../SignOut";
 
 const Cast= () => {
-    return (
-      <>
-        <Link to="/mainview">
-          <span className="close" />
-        </Link>
-        <p className="castHeading">skład orkiestry</p>
-        <div className="container">
-          <div className="plans">
-            <div className="weeks">
-              <div className="view">wrzesień</div>
-              <Link
-                to="/cast-first-week"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <h2 className="week">1-5.09.2020</h2>{" "}
-              </Link>
-              <h2 className="week">2 tydzień</h2>
-              <h2 className="week">3 tydzień</h2>
-              <h2 className="week">4 tydzień</h2>
-            </div>
-            <div className="weeks">
-              <div className="view">październik</div>
-              <h2 className="week">1 tydzień</h2>
-              <h2 className="week">2 tydzień</h2>
-              <h2 className="week"> 3 tydzień</h2>
-              <h2 className="week">4 tydzień</h2>
-            </div>
-            <div className="weeks">
-              <div className="view">listopad</div>
-              <h2 className="week">1 tydzień</h2>
-              <h2 className="week">2 tydzień</h2>
-              <h2 className="week"> 3 tydzień</h2>
-              <h2 className="week">4 tydzień</h2>
-            </div>
-            <div className="weeks">
-              <div className="view">grudzień</div>
-              <h2 className="week">1 tydzień</h2>
-              <h2 className="week">2 tydzień</h2>
-              <h2 className="week"> 3 tydzień</h2>
-              <h2 className="week">4 tydzień</h2>
-            </div>
-            {/*    <div className="weeks">*/}
-            {/*        <div className="view">styczeń</div>*/}
-            {/*        <h2 className="week">1 tydzień</h2>*/}
-            {/*        <h2 className="week">2 tydzień</h2>*/}
-            {/*        <h2 className="week">3 tydzień</h2>*/}
-            {/*        <h2 className="week">4 tydzień</h2>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+  // const [text, setText] = useState("");
+  // const [file, setFile] = useState("");
+  // const [cast, setCast] = useState([]);
 
-            {/*<div className="plans">*/}
-            {/*    <div className="weeks">*/}
-            {/*        <div className="view">luty</div>*/}
-            {/*        <h2 className="week">1 tydzień</h2>*/}
-            {/*        <h2 className="week">2 tydzień</h2>*/}
-            {/*        <h2 className="week">3 tydzień</h2>*/}
-            {/*        <h2 className="week">4 tydzień</h2>*/}
-            {/*    </div>*/}
-            {/*    <div className="weeks">*/}
-            {/*        <div className="view ">marzec</div>*/}
-            {/*        <h2 className="week">1 tydzień</h2>*/}
-            {/*        <h2 className="week">2 tydzień</h2>*/}
-            {/*        <h2 className="week">3 tydzień</h2>*/}
-            {/*        <h2 className="week">4 tydzień</h2>*/}
-            {/*    </div>*/}
-            {/*    <div className="weeks">*/}
-            {/*        <div className="view">kwiecień</div>*/}
-            {/*        <h2 className="week">1 tydzień</h2>*/}
-            {/*        <h2 className="week">2 tydzień</h2>*/}
-            {/*        <h2 className="week"> 3 tydzień</h2>*/}
-            {/*        <h2 className="week">4 tydzień</h2>*/}
-            {/*    </div>*/}
-            {/*    <div className="weeks">*/}
-            {/*        <div className="view ">maj</div>*/}
-            {/*        <h2 className="week">1 tydzień</h2>*/}
-            {/*        <h2 className="week">2 tydzień</h2>*/}
-            {/*        <h2 className="week"> 3 tydzień</h2>*/}
-            {/*        <h2 className="week">4 tydzień</h2>*/}
-            {/*    </div>*/}
-            {/*    <div className="weeks">*/}
-            {/*        <div className="view ">czerwiec</div>*/}
-            {/*        <h2 className="week">1 tydzień</h2>*/}
-            {/*        <h2 className="week">2 tydzień</h2>*/}
-            {/*        <h2 className="week"> 3 tydzień</h2>*/}
-            {/*        <h2 className="week">4 tydzień</h2>*/}
-            {/*    </div>*/}
-          </div>
-        </div>
-      </>
-    );
+  // const handleChange = (e) => {
+  //   setMsg(e.target.value);
+  // };
+  // const addJanuary = () => {
+  //   firestore.collection("styczeń").add({
+  //     text: text,
+  //     file: file,
+  //   });
+
+  //   setMsg("");
+  // };
+
+  // const addFile = async (e) => {
+  //   const file = e.target.files[0];
+  //   const storageRef = firebase.storage().ref();
+  //   const fileRef = storageRef.child(file.name);
+  //   fileRef.put(file);
+  //   setFile(await fileRef.getDownloadURL());
+  // };
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const data = await firestore.collection("styczeń").get();
+  //     setInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   };
+  //   fetchData();
+  // }, []);
+
+
+  return (
+    <>
+      <div className="buttons">
+        <MainViewLink />
+        <SignOutButton />
+      </div>
+      <div className="castPage">
+        <h1>Styczeń</h1>
+        <input></input>
+        <input type="file"/>
+
+        <button>Dodaj</button>
+
+        <h1>Luty</h1>
+        <h1>Marzec</h1>
+        <h1>Kwiecień</h1>
+        <h1>Maj</h1>
+        <h1>Czerwiec</h1>
+        <h1>Lipiec</h1>
+        <h1>Sierpień</h1>
+        <h1>Wrzesień</h1>
+        <h1>Październik</h1>
+        <h1>Listopad</h1>
+        <h1>Grudzień</h1>
+      </div>
+    </>
+  );
 }
 
 

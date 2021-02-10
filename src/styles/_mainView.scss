@@ -44,7 +44,7 @@
 .messenger,
 .contact,
 .availabilityOfWardrobes,
-.admin {
+.cast {
   color: black;
   background-color: white;
   left: 0;
@@ -59,7 +59,7 @@
   }
 }
   .availabilityOfRooms,
-  .cast,
+  .admin,
   .tickets,
   .reg,
   .reviews,
@@ -90,7 +90,7 @@
     top: 100px;
     border-top: none;
   }
-  .cast {
+  .admin {
     top: 167px;
     }
   .tickets {
@@ -132,7 +132,7 @@
     border-top: none;
 
   }
-.admin {
+.cast {
      background-color: transparent;
     top: 700px;
     border-top: none;
@@ -179,10 +179,3 @@
     
   }
 }
-// .welcome {
-//   color: rgb(170,89,36);
-//   font-size: 20px;
-//   text-align: right;
-//   margin-top: 0;
-//   // font-family:Arial, Helvetica, sans-serif;
-// }

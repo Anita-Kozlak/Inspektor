@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import AdminMenu from "../AdminMenu";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AppContext from "../../context";
 import { acceptUser, setUserTeam } from "../../firebase/firebaseUtils";
-
+import MainViewLink from "../Link/MainViewLink";
+import SignOutButton from "../SignOut";
 // const firestore = firebase.firestore();
 
 const Users = () => {
@@ -29,43 +29,48 @@ const Users = () => {
   );
 
   return (
-    <div className="admin">
-      <AdminMenu />
-      <div className="users">
-        <ul>
-          {usersWithoutAdmins.map(
-            ({ nameAndSurname, email, id, acceptance, team }, index) => (
-              <li key={id}>
-                <span>
-                  <strong>
-                    {index + 1}. {nameAndSurname} - {email}
-                  </strong>
-                  <select
-                    onChange={(e) => setUserTeam(id, e.target.value)}
-                    defaultValue={team}
-                  >
-                    <option>wybierz</option>
-                    <option value="orkiestra symfoniczna">
-                      Orkiestra Symfoniczna
-                    </option>
-                    <option value="orkiestra Leopoldinum">
-                      Orkiestra Leopoldinum
-                    </option>
-                    <option value="chór">Chór</option>
-                  </select>
-                  {acceptance ? (
-                    <p>Zaakceptowany</p>
-                  ) : (
-                    <button onClick={() => acceptUser(id)}>Dodaj</button>
-                  )}
-                  <DeleteIcon style={{ marginLeft: "10px" }} />
-                </span>
-              </li>
-            ),
-          )}
-        </ul>
+    <>
+      <div className="buttons">
+        <MainViewLink />
+        <SignOutButton />
       </div>
-    </div>
+      <div className="admin">
+        <div className="users">
+          <ul>
+            {usersWithoutAdmins.map(
+              ({ nameAndSurname, email, id, acceptance, team }, index) => (
+                <li key={id}>
+                  <span>
+                    <strong>
+                      {index + 1}. {nameAndSurname} - {email}
+                    </strong>
+                    <select
+                      onChange={(e) => setUserTeam(id, e.target.value)}
+                      defaultValue={team}
+                    >
+                      <option>wybierz</option>
+                      <option value="orkiestra symfoniczna">
+                        Orkiestra Symfoniczna
+                      </option>
+                      <option value="orkiestra Leopoldinum">
+                        Orkiestra Leopoldinum
+                      </option>
+                      <option value="chór">Chór</option>
+                    </select>
+                    {acceptance ? (
+                      <p>Zaakceptowany</p>
+                    ) : (
+                      <button onClick={() => acceptUser(id)}>Dodaj</button>
+                    )}
+                    <DeleteIcon style={{ marginLeft: "10px" }} />
+                  </span>
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
+      </div>
+    </>
   );
 };
 
