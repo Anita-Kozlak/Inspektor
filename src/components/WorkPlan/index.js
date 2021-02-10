@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
+import AppContext from "../../context";
+
 
 const WorkPlan = () => {
+    
+  const context = useContext(AppContext);
+
   return (
     <>
       {" "}
@@ -22,9 +27,13 @@ const WorkPlan = () => {
           style={{ border: 0, width: "90vw", height: "80vh" }}
         ></iframe>
         <div className="message">
-          <h2>Wyślij wiadomość do orkiestry o zmianie w planie pracy</h2>
-          <input></input>
-          <button>Wyślij</button>
+          {context.currentUser.admin ? (
+            <>
+              <h2>Wyślij wiadomość do orkiestry o zmianie w planie pracy</h2>
+              <input></input>
+              <button>Wyślij</button>
+            </>
+          ) : null}
         </div>
       </div>
     </>
