@@ -5,6 +5,8 @@
   background-color: black;
   opacity: 0.9;
   padding-bottom: 160px;
+    overflow-y: hidden;
+
   // padding-bottom: 289px;
   
   @include tablet {
