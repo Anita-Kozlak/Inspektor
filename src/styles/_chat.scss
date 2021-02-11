@@ -4,7 +4,7 @@
 .chat-input {
     display: flex;
     background: #F0F2F5;
-    width: 80vw;
+    width: 94vw;
     margin: auto;
       @include tablet {
         width: 600px;
@@ -16,7 +16,7 @@ textarea {
     font-size: 15px;
     padding: 20px;
     border: none;
-    width: 80vw;
+    width: 94vw;
     resize: none;
     @include tablet {
         width: 600px;
@@ -37,7 +37,8 @@ img {
 }
 .chat {
         font-family: sans-serif;
-        width: 80vw;
+        width: 94vw;
+        
         background: #F0F2F5;
         margin: auto;
         height: 450px;
