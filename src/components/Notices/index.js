@@ -13,7 +13,6 @@ const Notices = () => {
   const [file, setFile] = useState("")
   const [info, setInfo] = useState([])
 
-
   const handleChange = (e) => {
     setMsg(e.target.value);
   };
@@ -65,11 +64,13 @@ const Notices = () => {
                 <h4>Opublikował: {info.name}</h4>
                 <div className="adminInfo__notices">
                   <p>{info.text} </p>
-                  {info.file !== "" ?  <a href={info.file}>
-                  
-                    <CloudDownloadIcon style={{ color: "blue" }} />
-                  </a> : null }
-                 
+                  {info.file !== "" ? (
+                    <a href={info.file}>
+                      <CloudDownloadIcon
+                        style={{ color: "#e60000" }}
+                      />
+                    </a>
+                  ) : null}
 
                   {context.currentUser.admin ? (
                     <SpellInput info={info} />

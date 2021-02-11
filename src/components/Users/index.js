@@ -58,7 +58,7 @@ const Users = () => {
                       <option value="chór">Chór</option>
                     </select>
                     {acceptance ? (
-                      <p>Zaakceptowany</p>
+                      <p>zaakceptowany</p>
                     ) : (
                       <button onClick={() => acceptUser(id)}>Dodaj</button>
                     )}
