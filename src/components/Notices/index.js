@@ -51,7 +51,7 @@ const Notices = () => {
       <div className="adminInfo">
         {context.currentUser.admin ? (
           <>
-            <label>Dodaj informację dla użytkowników aplikacji:</label>
+            <label>Dodaj ogłoszenie:</label>
             <input type="text" value={msg} onChange={handleChange}></input>{" "}
             <input type="file" onChange={addFile} />
             <button onClick={addMsg}>Dodaj</button>

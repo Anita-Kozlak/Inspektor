@@ -11,7 +11,7 @@
   .view {
   
     position: absolute;
-    padding-left: 25px;
+    padding-left: 20px;
     text-transform: uppercase;
     width: 50px;
     height: 100px;
@@ -29,7 +29,7 @@
 
     @include tablet {
       font-size: 17px;
-      padding-left: 30px;
+      padding-left: 20px;
     }
     &:hover {
       color: $hover;

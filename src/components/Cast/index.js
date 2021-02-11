@@ -1,39 +1,64 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { firestore } from "../../firebase/firebaseConfig";
 import MainViewLink from "../Link/MainViewLink";
 import SignOutButton from "../SignOut";
+import * as firebase from "firebase";
+import January from "../Cast/January"
+import February from "../Cast/February";
+import March from "../Cast/March";
+import April from "../Cast/April"
+import May from "../Cast/May"
+import June from "../Cast/June";
+import July from "../Cast/July";
+import August from "../Cast/August"
+import September from "../Cast/September"
+import October from "../Cast/October"
+import November from "../Cast/November";
+import December from "./December";
+import AppContext from "../../context";
+
+
+
+
+
 
 const Cast= () => {
-  // const [text, setText] = useState("");
-  // const [file, setFile] = useState("");
-  // const [cast, setCast] = useState([]);
 
-  // const handleChange = (e) => {
-  //   setMsg(e.target.value);
-  // };
-  // const addJanuary = () => {
-  //   firestore.collection("styczeń").add({
-  //     text: text,
-  //     file: file,
-  //   });
+  const context = useContext(AppContext);
+  const [text, setText] = useState("");
+  const [compositionFile, setCompositionFile] = useState("");
+  const [castFile, setCastFile] = useState("");
+  const [month, setMonth] = useState('')
 
-  //   setMsg("");
-  // };
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+  const addMonth= () => {
+    firestore.collection(month).add({
+      text: text,
+      castFile: castFile,
+      compositionFile:  compositionFile,
+    });
 
-  // const addFile = async (e) => {
-  //   const file = e.target.files[0];
-  //   const storageRef = firebase.storage().ref();
-  //   const fileRef = storageRef.child(file.name);
-  //   fileRef.put(file);
-  //   setFile(await fileRef.getDownloadURL());
-  // };
+    setText("");
+  };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const data = await firestore.collection("styczeń").get();
-  //     setInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //   };
-  //   fetchData();
-  // }, []);
+  const addCastFile = async (e) => {
+    const file = e.target.files[0];
+    const storageRef = firebase.storage().ref();
+    const fileRef = storageRef.child(file.name);
+    fileRef.put(file);
+    setCastFile(await fileRef.getDownloadURL());
+  };
+
+  const addCompositionFile = async (e) => {
+    const file = e.target.files[0];
+    const storageRef = firebase.storage().ref();
+    const fileRef = storageRef.child(file.name);
+    fileRef.put(file);
+    setCompositionFile(await fileRef.getDownloadURL());
+  };
+
 
 
   return (
@@ -43,23 +68,50 @@ const Cast= () => {
         <SignOutButton />
       </div>
       <div className="castPage">
-        <h1>Styczeń</h1>
-        <input></input>
-        <input type="file"/>
+        {context.currentUser.admin ? (
+          <>
+            <select onChange={(e) => setMonth(e.target.value)}>
+              <option>wybierz miesiąc</option>
+              <option>Styczeń</option>
+              <option>Luty</option>
+              <option>Marzec</option>
+              <option>Kwiecień</option>
+              <option>Maj</option>
+              <option>Czerwiec</option>
+              <option>Lipiec</option>
+              <option>Sierpień</option>
+              <option>Wrzesień</option>
+              <option>Październik</option>
+              <option>Listopad</option>
+              <option>Grudzień</option>
+            </select>
 
-        <button>Dodaj</button>
+            <input
+              onChange={handleChange}
+              value={text}
+              placeholder="tytuł: np. 2021.02.15-19 Runtz"
+            ></input>
+            <label>obsada: </label>
+            <input onChange={addCastFile} type="file" />
+            <label>skład orkiestry: </label>
+            <input onChange={addCompositionFile} type="file" />
 
-        <h1>Luty</h1>
-        <h1>Marzec</h1>
-        <h1>Kwiecień</h1>
-        <h1>Maj</h1>
-        <h1>Czerwiec</h1>
-        <h1>Lipiec</h1>
-        <h1>Sierpień</h1>
-        <h1>Wrzesień</h1>
-        <h1>Październik</h1>
-        <h1>Listopad</h1>
-        <h1>Grudzień</h1>
+            <button onClick={addMonth}>Dodaj</button>
+          </>
+        ) : null}
+
+        <January />
+        <February />
+        <March />
+        <April />
+        <May />
+        <June />
+        <July />
+        <August />
+        <September />
+        <October />
+        <November />
+        <December />
       </div>
     </>
   );

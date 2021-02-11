@@ -113,7 +113,7 @@ const [name, setName] = useState("")
                               ).toLocaleString()}
                           </span>
                         </div>
-                        <p style={{ background: 'lightblue' }}>
+                        <p style={{ background: 'cadetblue' }}>
                           {message.text}
                         </p>
                       </div>

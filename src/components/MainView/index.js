@@ -27,7 +27,7 @@ const MainViewPage = () => {
           <h1 className="regulations view">REGULAMINY</h1>
         </Link>
         <Link to={routes.cast}>
-          <h1 className="cast view">Skład orkiestry</h1>
+          <h1 className="cast view">Obsada i skład orkiestry</h1>
         </Link>
         <a
           href="/Repertuar_sezonu.pdf"
