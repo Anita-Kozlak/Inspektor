@@ -65,6 +65,7 @@ const MainViewPage = () => {
           className="availabilityOfRooms view"
         ></div>
         <div className="tickets view"></div>
+        <div className="reviews view"></div>
       </div>
     </div>
   );
